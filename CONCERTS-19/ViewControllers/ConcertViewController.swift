@@ -19,9 +19,9 @@ class ConcertViewController: UIViewController {
         
         concerts = Concerts()
         
-        // if you have a tableView, you will want this code too. the .isHidden will hide the tableView data so that it cannot be seen by anyone who has not logged in. (security feature)
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,14 +31,29 @@ class ConcertViewController: UIViewController {
         }
     }
     
+    
     // when the user selectes a table view cell, the data of that cell is passed over to concert view controller so it can be updated and saved by the user
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowConcert" {
-            let destination = segue.destination as! ConcertDetailTableViewController
+            let destination = segue.destination as! ConcertDetailViewController
             let selectedIndexPath = tableView.indexPathForSelectedRow!
             destination.concert = concerts.concertArray[selectedIndexPath.row]
         } // typically we would have a "AddConcert" else block but do not need that with Snapshot listener because it will handle when docs are added
     }
+    
+//    // LEGGO (things that need to be changed (like array name) will be underlined as errors)
+//    @IBAction func unwindFromDetail(segue: UIStoryboardSegue) {
+//        let source = segue.source as! ConcertDetailViewController
+//        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+//            concerts.concertArray[selectedIndexPath.row].artist = source.concert.artist
+//            tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+//        } else { // if selected row is nil (clicked plus button)
+//            let newIndexPath = IndexPath(row: concerts.concertArray.count, section: 0)
+//            concerts.concertArray.append(source.concert)
+//            tableView.insertRows(at: [newIndexPath], with: .bottom)
+//            tableView.scrollToRow(at: newIndexPath, at: .bottom, animated: true)
+//        }
+//    }
 }
 
 extension ConcertViewController: UITableViewDelegate, UITableViewDataSource {
@@ -47,8 +62,13 @@ extension ConcertViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = concerts.concertArray[indexPath.row].artist
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ConcertTableViewCell
+        cell.concert = concerts.concertArray[indexPath.row]
+        //cell.textLabel?.text = concerts.concertArray[indexPath.row].artist
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 }

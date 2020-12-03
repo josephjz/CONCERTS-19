@@ -95,28 +95,28 @@ extension LoginViewController : FUIAuthDelegate {
         }
     }
     
-    //    // customization code for logo
-    //    func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
-    //
-    //        // create an instance of the FirebaseAuth Login View Controller
-    //        let loginViewController = FUIAuthPickerViewController(authUI: authUI)
-    //
-    //        // set background color to white
-    //        loginViewController.view.backgroundColor = UIColor.white
-    //
-    //        // create a frame for a UIImageView to hold our logo
-    //        let marginInsets: CGFloat = 16      // logo will be 16 points from L and R margins
-    //        let imageHeight: CGFloat = 225      // logo height
-    //        let imageY = self.view.center.y - imageHeight       // place bottom of UIImageView in the center of the login screen
-    //        let logoFrame = CGRect(x: self.view.frame.origin.x + marginInsets, y: imageY, width: self.view.frame.width - (marginInsets*2), height: imageHeight)
-    //
-    //        // create the UIImageView using the frame created above and add the "logo" image
-    //        let logoImageView = UIImageView(frame: logoFrame)
-    //        logoImageView.image = UIImage(named: "logo")
-    //        logoImageView.contentMode = .scaleAspectFit     // set imageView to Aspect Fit
-    //        loginViewController.view.addSubview(logoImageView)      // add imageView to the login controller's main view
-    //        return loginViewController
-    //    }
+    // customization code for logo
+    func authPickerViewController(forAuthUI authUI: FUIAuth) -> FUIAuthPickerViewController {
+        
+        // create an instance of the FirebaseAuth Login View Controller
+        let loginViewController = FUIAuthPickerViewController(authUI: authUI)
+        
+        // set background color to white
+        loginViewController.view.backgroundColor = UIColor(named: "ConcertPurpleColor")
+        
+        // create a frame for a UIImageView to hold our logo
+        let marginInsets: CGFloat = 5      // logo will be 16 points from L and R margins
+        let imageHeight: CGFloat = 650      // logo height
+        let imageY = self.view.center.y - imageHeight       // place bottom of UIImageView in the center of the login screen
+        let logoFrame = CGRect(x: self.view.frame.origin.x + marginInsets, y: self.view.frame.origin.x + (3*marginInsets), width: self.view.frame.width - (marginInsets*2), height: imageHeight)
+        
+        // create the UIImageView using the frame created above and add the "logo" image
+        let logoImageView = UIImageView(frame: logoFrame)
+        logoImageView.image = UIImage(named: "HomeScreen")
+        logoImageView.contentMode = .scaleAspectFit     // set imageView to Aspect Fit
+        loginViewController.view.addSubview(logoImageView)      // add imageView to the login controller's main view
+        return loginViewController
+    }
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  ConcertDetailTableViewController.swift
+//  InPersonConcertDetailTableViewController.swift
 //  CONCERTS-19
 //
 //  Created by Jennifer Joseph on 12/2/20.
@@ -10,8 +10,8 @@ import GooglePlaces // needed for Autocomplete to get places
 import MapKit  //needed for map view to display location
 
 
-class ConcertDetailTableViewController: UITableViewController {
-
+class ConcertDetailViewController: UITableViewController {
+    
     @IBOutlet weak var leftBarButton: UIBarButtonItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var dateTextField: UITextField!
@@ -22,13 +22,13 @@ class ConcertDetailTableViewController: UITableViewController {
     
     var concert : Concert!
     
-    private var datePicker : UIDatePicker?
+    let datePicker = UIDatePicker()
     
-    private let dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, yyyy, h:mm a"
-        return dateFormatter
-    }()
+    //    private let dateFormatter: DateFormatter = {
+    //        let dateFormatter = DateFormatter()
+    //        dateFormatter.dateFormat = "MMM d, yyyy, h:mm a"
+    //        return dateFormatter
+    //    }()
     
     let regionDistance : CLLocationDistance = 20000 // declares a value (20000 m) to use for the requested 20km map area
     
@@ -41,6 +41,10 @@ class ConcertDetailTableViewController: UITableViewController {
         //datePicker?.datePickerMode = .dateAndTime
         //datePicker?.addTarget(self, action: #selector(ConcertDetailTableViewController.dateChanged(datePicker:)), for: .valueChanged)
         //dateTextField.inputView = datePicker
+        
+        //if segue.identifier == "AddConcertRemote" {
+        
+        //}
         
         // hide keyboard if we tap outside of field
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -59,16 +63,17 @@ class ConcertDetailTableViewController: UITableViewController {
         
     }
     
-    @objc func dateChanged(datePicker: UIDatePicker) {
-        concert.date = datePicker.date
-        dateTextField.text = "\(dateFormatter.string(from: concert.date))"
-        view.endEditing(true)   // forces firstResponder (which is the datePicker) to dismiss itself
-    }
+    //@objc func dateChanged(datePicker: UIDatePicker) {
+    // concert.date = datePicker.date
+    //dateTextField.text = "\(dateFormatter.string(from: concert.date))"
+    //view.endEditing(true)   // forces firstResponder (which is the datePicker) to dismiss itself
+    //}
     
     func updateUserInterface() {
         artistTextField.text = concert.artist
         ticketPriceTextField.text = concert.ticketPrice
         ticketLinkTextField.text = concert.ticketLink
+        //tap =
         updateMap()
     }
     
@@ -78,16 +83,42 @@ class ConcertDetailTableViewController: UITableViewController {
         concert.ticketLink = ticketLinkTextField.text!
     }
     
+    func showDatePicker(){
+        //Formate Date
+        datePicker.datePickerMode = .dateAndTime
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        dateTextField.inputAccessoryView = toolbar
+        dateTextField.inputView = datePicker
+    }
+    
+    @objc func donedatePicker(){
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy, h:mm a"
+        dateTextField.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+        
+    }
+    
+    
     func updateMap() {
         mapView.removeAnnotations(mapView.annotations)      // removes any old annotations
         mapView.addAnnotation(concert)     // plots the new one for the current concert
         mapView.setCenter(concert.coordinate, animated: true)
     }
-    
-    
-    
-    
-    
     
     // call from both IBActions
     func leaveViewController() {
@@ -101,6 +132,8 @@ class ConcertDetailTableViewController: UITableViewController {
             navigationController?.popViewController(animated: true)
         }
     }
+    
+
     
     
     @IBAction func leftBarButtonPressed(_ sender: UIBarButtonItem) {
@@ -126,7 +159,7 @@ class ConcertDetailTableViewController: UITableViewController {
 // from https://developers.google.com/places/ios-sdk/autocomplete?authuser=2
 // change generic name of ViewControllers
 
-extension ConcertDetailTableViewController: GMSAutocompleteViewControllerDelegate {
+extension ConcertDetailViewController: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
