@@ -30,15 +30,28 @@ class LoginViewController: UIViewController {
     
     func signIn() {
         let providers: [FUIAuthProvider] = [
-            FUIGoogleAuth(),
-        ]
+          FUIGoogleAuth(),
+        ]   // this providers code creates the button for user to click for Google Sign In
         if authUI.auth?.currentUser == nil { // user has not signed in
-            self.authUI.providers = providers // show providers named after let providers: above
+            self.authUI.providers = providers // show providers named after let providers: above using pre built Google sign in login
             let loginViewController = authUI.authViewController()
             loginViewController.modalPresentationStyle = .fullScreen
             present(loginViewController, animated: true, completion: nil)
         } else { // user is already logged in
+            guard let currentUser = authUI.auth?.currentUser else {
+                print("ERROR: Could not get current user")
+                return
+            }
+            let concertUser = ConcertUser(user: currentUser)
+            concertUser.saveIfNewUser { (success) in
+                if success {
+                    self.performSegue(withIdentifier: "FirstShowSegue", sender: nil)
+                } else {
+                    print("ERROR: Tried to save a new Concert User but failed.")
+                }
+            }
             performSegue(withIdentifier: "FirstShowSegue", sender: nil)
+            // have a valid user, but want to check to see if we have userDoc for them
         }
     }
     

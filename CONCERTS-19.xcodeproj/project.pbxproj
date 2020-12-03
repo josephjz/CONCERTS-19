@@ -12,13 +12,15 @@
 		442AF89125780ADB00AFEBE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442AF89025780ADB00AFEBE8 /* SceneDelegate.swift */; };
 		442AF89325780ADB00AFEBE8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442AF89225780ADB00AFEBE8 /* LoginViewController.swift */; };
 		442AF89625780ADB00AFEBE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442AF89425780ADB00AFEBE8 /* Main.storyboard */; };
-		442AF89825780ADD00AFEBE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442AF89725780ADD00AFEBE8 /* Assets.xcassets */; };
 		442AF89B25780ADD00AFEBE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442AF89925780ADD00AFEBE8 /* LaunchScreen.storyboard */; };
 		44D546F425780FEE005A7607 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44D546F325780FED005A7607 /* GoogleService-Info.plist */; };
 		44D546F9257818F4005A7607 /* ConcertDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D546F8257818F4005A7607 /* ConcertDetailTableViewController.swift */; };
 		44D546FC257819D1005A7607 /* ConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D546FB257819D1005A7607 /* ConcertViewController.swift */; };
 		44D5471E25782AB7005A7607 /* Concert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D5471D25782AB7005A7607 /* Concert.swift */; };
 		44D5479D257847B9005A7607 /* Concerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D5479C257847B9005A7607 /* Concerts.swift */; };
+		44D547FD25786F94005A7607 /* ConcertUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D547FC25786F94005A7607 /* ConcertUser.swift */; };
+		44D5480025786FFA005A7607 /* ConcertUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D547FF25786FFA005A7607 /* ConcertUsers.swift */; };
+		44D5484825787DE2005A7607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D5484725787DE2005A7607 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +29,6 @@
 		442AF89025780ADB00AFEBE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		442AF89225780ADB00AFEBE8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		442AF89525780ADB00AFEBE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		442AF89725780ADD00AFEBE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		442AF89A25780ADD00AFEBE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		442AF89C25780ADD00AFEBE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44D546F325780FED005A7607 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -35,6 +36,9 @@
 		44D546FB257819D1005A7607 /* ConcertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertViewController.swift; sourceTree = "<group>"; };
 		44D5471D25782AB7005A7607 /* Concert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concert.swift; sourceTree = "<group>"; };
 		44D5479C257847B9005A7607 /* Concerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concerts.swift; sourceTree = "<group>"; };
+		44D547FC25786F94005A7607 /* ConcertUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertUser.swift; sourceTree = "<group>"; };
+		44D547FF25786FFA005A7607 /* ConcertUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertUsers.swift; sourceTree = "<group>"; };
+		44D5484725787DE2005A7607 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		475DE18ADD6298158D0956B6 /* Pods-CONCERTS-19.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CONCERTS-19.release.xcconfig"; path = "Target Support Files/Pods-CONCERTS-19/Pods-CONCERTS-19.release.xcconfig"; sourceTree = "<group>"; };
 		7E0785559E06800ED69AE13C /* Pods_CONCERTS_19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CONCERTS_19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C33B60DE076D81F22FABA /* Pods-CONCERTS-19.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CONCERTS-19.debug.xcconfig"; path = "Target Support Files/Pods-CONCERTS-19/Pods-CONCERTS-19.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,18 +79,36 @@
 			children = (
 				442AF88E25780ADB00AFEBE8 /* AppDelegate.swift */,
 				442AF89025780ADB00AFEBE8 /* SceneDelegate.swift */,
-				44D5471D25782AB7005A7607 /* Concert.swift */,
-				44D5479C257847B9005A7607 /* Concerts.swift */,
-				442AF89225780ADB00AFEBE8 /* LoginViewController.swift */,
-				44D546FB257819D1005A7607 /* ConcertViewController.swift */,
-				44D546F8257818F4005A7607 /* ConcertDetailTableViewController.swift */,
+				44D548222578710A005A7607 /* CustomClasses  */,
+				44D54821257870EE005A7607 /* ViewControllers */,
 				442AF89425780ADB00AFEBE8 /* Main.storyboard */,
-				442AF89725780ADD00AFEBE8 /* Assets.xcassets */,
 				442AF89925780ADD00AFEBE8 /* LaunchScreen.storyboard */,
 				442AF89C25780ADD00AFEBE8 /* Info.plist */,
 				44D546F325780FED005A7607 /* GoogleService-Info.plist */,
+				44D5484725787DE2005A7607 /* Assets.xcassets */,
 			);
 			path = "CONCERTS-19";
+			sourceTree = "<group>";
+		};
+		44D54821257870EE005A7607 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				442AF89225780ADB00AFEBE8 /* LoginViewController.swift */,
+				44D546FB257819D1005A7607 /* ConcertViewController.swift */,
+				44D546F8257818F4005A7607 /* ConcertDetailTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		44D548222578710A005A7607 /* CustomClasses  */ = {
+			isa = PBXGroup;
+			children = (
+				44D5471D25782AB7005A7607 /* Concert.swift */,
+				44D5479C257847B9005A7607 /* Concerts.swift */,
+				44D547FC25786F94005A7607 /* ConcertUser.swift */,
+				44D547FF25786FFA005A7607 /* ConcertUsers.swift */,
+			);
+			path = "CustomClasses ";
 			sourceTree = "<group>";
 		};
 		B2772291959327EB9E3DF3EF /* Frameworks */ = {
@@ -168,7 +190,7 @@
 			files = (
 				442AF89B25780ADD00AFEBE8 /* LaunchScreen.storyboard in Resources */,
 				44D546F425780FEE005A7607 /* GoogleService-Info.plist in Resources */,
-				442AF89825780ADD00AFEBE8 /* Assets.xcassets in Resources */,
+				44D5484825787DE2005A7607 /* Assets.xcassets in Resources */,
 				442AF89625780ADB00AFEBE8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,7 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D5480025786FFA005A7607 /* ConcertUsers.swift in Sources */,
 				44D5479D257847B9005A7607 /* Concerts.swift in Sources */,
+				44D547FD25786F94005A7607 /* ConcertUser.swift in Sources */,
 				44D546FC257819D1005A7607 /* ConcertViewController.swift in Sources */,
 				442AF89325780ADB00AFEBE8 /* LoginViewController.swift in Sources */,
 				44D546F9257818F4005A7607 /* ConcertDetailTableViewController.swift in Sources */,
