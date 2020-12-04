@@ -31,6 +31,10 @@ class Concert: NSObject, MKAnnotation {
         return coordinate.longitude
     }
     
+    var location: CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
     // to display title in mapview pin
     var title: String? {
         return "\(artist) Concert"

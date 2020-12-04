@@ -1,8 +1,8 @@
 //
-//  InPersonConcertDetailTableViewController.swift
+//  ConcertDetailViewController.swift
 //  CONCERTS-19
 //
-//  Created by Jennifer Joseph on 12/2/20.
+//  Created by Jennifer Joseph.
 //
 
 import UIKit
@@ -15,7 +15,6 @@ private let dateFormatter: DateFormatter = {
     dateFormatter.dateFormat = "MMM d, yyyy, h:mm a"
     return dateFormatter
 }()
-
 
 class ConcertDetailViewController: UITableViewController {
     
@@ -33,15 +32,10 @@ class ConcertDetailViewController: UITableViewController {
     @IBOutlet weak var findVenueBarButton: UIBarButtonItem!
     
     var concert : Concert!
-   
-    let regionDistance : CLLocationDistance = 20000 // declares a value (20000 m) to use for the requested 20km map area
-    //CLLocationDegrees = 750.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // create the region, centered at the University's coordinates, and spanning horizontally and vertically by regionDistance
-        //let region = MKCoordinateRegion(center: concert.coordinate, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-        //mapView.setRegion(region, animated: true)
+
         // hide keyboard if we tap outside of field
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
@@ -52,7 +46,6 @@ class ConcertDetailViewController: UITableViewController {
         }
         
         updateUserInterface()
-        
     }
     
     func updateUserInterface() {
@@ -62,7 +55,7 @@ class ConcertDetailViewController: UITableViewController {
         datePicker.date = concert.date
         dateTextField.text = dateFormatter.string(from: concert.date)
         venueTextField.text = concert.venue
-        updateButtonImages(selectedInPerson: concert.remote)
+        updateButtonImages(remote: concert.remote)
         updateMap()
         
         // check if user that is logged in is user that posted this concert
@@ -96,14 +89,14 @@ class ConcertDetailViewController: UITableViewController {
         concert.ticketLink = ticketLinkTextField.text!
     }
     
-    func updateButtonImages(selectedInPerson: Bool) {
-        concert.remote = selectedInPerson
-        if selectedInPerson {
-            inPersonButton.imageView?.image = UIImage(named: "People")
-            remoteButton.imageView?.image = UIImage(named: "FadedComputer")
-        } else {
+    func updateButtonImages(remote: Bool) {
+        concert.remote = remote
+        if remote {
             inPersonButton.imageView?.image = UIImage(named: "FadedPeople")
             remoteButton.imageView?.image = UIImage(named: "Computer")
+        } else {
+            inPersonButton.imageView?.image = UIImage(named: "People")
+            remoteButton.imageView?.image = UIImage(named: "FadedComputer")
         }
     }
     
@@ -141,23 +134,19 @@ class ConcertDetailViewController: UITableViewController {
                 print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
             }
         }
-        
     }
-    
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         dateTextField.text = dateFormatter.string(from: sender.date)
     }
     
     @IBAction func inPersonButtonPressed(_ sender: UIButton) {
-        concert.remote = false
-        updateButtonImages(selectedInPerson: true)
+        updateButtonImages(remote: false)
         // need to do something here that shows user which button they hit
     }
     
     @IBAction func remoteButtonPressed(_ sender: UIButton) {
-        concert.remote = true
-        updateButtonImages(selectedInPerson: false)
+        updateButtonImages(remote: true)
         // need to do something here that shows user which button they hit
     }
     
