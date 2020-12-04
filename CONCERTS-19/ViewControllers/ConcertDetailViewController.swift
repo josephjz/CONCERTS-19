@@ -9,7 +9,6 @@ import UIKit
 import GooglePlaces // needed for Autocomplete to get places
 import MapKit  //needed for map view to display location
 
-
 class ConcertDetailViewController: UITableViewController {
     
     @IBOutlet weak var leftBarButton: UIBarButtonItem!
@@ -19,10 +18,13 @@ class ConcertDetailViewController: UITableViewController {
     @IBOutlet weak var ticketPriceTextField: UITextField!
     @IBOutlet weak var ticketLinkTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var inPersonButton: UIButton!
+    @IBOutlet weak var remoteButton: UIButton!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var concert : Concert!
     
-    let datePicker = UIDatePicker()
+    //let datePicker = UIDatePicker()
     
     //    private let dateFormatter: DateFormatter = {
     //        let dateFormatter = DateFormatter()
@@ -42,10 +44,6 @@ class ConcertDetailViewController: UITableViewController {
         //datePicker.datePickerMode = .dateAndTime
         datePicker.addTarget(self, action: #selector(ConcertDetailViewController.showDatePicker), for: .valueChanged)
         dateTextField.inputView = datePicker
-        
-        //if segue.identifier == "AddConcertRemote" {
-        
-        //}
         
         // hide keyboard if we tap outside of field
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -70,13 +68,15 @@ class ConcertDetailViewController: UITableViewController {
         artistTextField.text = concert.artist
         ticketPriceTextField.text = concert.ticketPrice
         ticketLinkTextField.text = concert.ticketLink
-        //tap =
+        datePicker.date = concert.date
+        // images handled in buttons
         updateMap()
     }
     
     func updateFromUserInterface() {
         concert.artist = artistTextField.text!
-        concert.remote = true
+        concert.date = datePicker.date
+        // images handled in buttons
         concert.ticketPrice = ticketPriceTextField.text!
         concert.ticketLink = ticketLinkTextField.text!
     }
@@ -114,7 +114,6 @@ class ConcertDetailViewController: UITableViewController {
     
     @objc func cancelDatePicker(){
         self.view.endEditing(true)
-        
     }
     
     
@@ -143,7 +142,6 @@ class ConcertDetailViewController: UITableViewController {
     
     @IBAction func saveBarButtonPressed(_ sender: UIBarButtonItem) {
         // When reusing this code, the only changes required may be to concert.saveData (you'll likley have a different object, and it is possible that you might pass in parameters if you're saving to a longer document reference path
-        print("SAVE HEY")
         updateFromUserInterface()
         concert.saveData { success in
             if success {
@@ -154,12 +152,38 @@ class ConcertDetailViewController: UITableViewController {
         }
         
     }
+    
+    @IBAction func inPersonButtonPressed(_ sender: UIButton) {
+        concert.remote = false
+        remoteButton.alpha = 0.5
+        inPersonButton.alpha = 1.0
+        // need to do something here that shows user which button they hit
+    }
+    
+    @IBAction func remoteButtonPressed(_ sender: UIButton) {
+        concert.remote = true
+        remoteButton.alpha = 1.0
+        inPersonButton.alpha = 0.5
+        // need to do something here that shows user which button they hit
+    }
 }
+
+
+//extension ConcertDetailViewController {
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        switch indexPath {
+//        case IndexPath(row: 5, section: 0):
+//            return concert.remote ? mapView.frame.height : 0
+//           // trying to simulate hiding the mapView
+//        default:
+//            return 44
+//        }
+//    }
+//}
 
 
 
 // from https://developers.google.com/places/ios-sdk/autocomplete?authuser=2
-// change generic name of ViewControllers
 
 extension ConcertDetailViewController: GMSAutocompleteViewControllerDelegate {
     
@@ -175,7 +199,6 @@ extension ConcertDetailViewController: GMSAutocompleteViewControllerDelegate {
         // place is returned by GOogle and it has a .name property (this is an optional)
         
         updateFromUserInterface() // call this first to get whatever the user has typed in text field of detail static table view
-        //team.university = place.name ?? "Uknown School" // then update from places
         concert.coordinate = place.coordinate // save the place coordiate containing lat/lon of place to the place coord
         updateUserInterface()  // then call this so that the team object has all of the latest values
         updateMap() // then call this last to also update the mapview
