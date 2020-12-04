@@ -30,6 +30,7 @@ class ConcertDetailViewController: UITableViewController {
     @IBOutlet weak var remoteButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var findVenueBarButton: UIBarButtonItem!
+    @IBOutlet weak var remoteLabel: UILabel!
     
     var concert : Concert!
     
@@ -55,7 +56,9 @@ class ConcertDetailViewController: UITableViewController {
         datePicker.date = concert.date
         dateTextField.text = dateFormatter.string(from: concert.date)
         venueTextField.text = concert.venue
-        updateButtonImages(remote: concert.remote)
+        //updateButtonImages(remote: concert.remote)
+        inPersonButton.imageView?.image = UIImage(named: "People")
+        remoteButton.imageView?.image = UIImage(named: "Computer")
         updateMap()
         
         // check if user that is logged in is user that posted this concert
@@ -65,12 +68,15 @@ class ConcertDetailViewController: UITableViewController {
             if concert.postingUserID == Auth.auth().currentUser?.uid {
                 // change save to update
                 saveBarButton.title = "Update"
+                updateButtonImages(remote: concert.remote)
             } else {    // concert listed by diff user
                 saveBarButton.hide()
+                remoteLabel.text = "How You Can Attend:"
                 leftBarButton.title = "Back"
                 findVenueBarButton.hide()
                 remoteButton.isEnabled = false
                 inPersonButton.isEnabled = false
+                updateButtonImages(remote: concert.remote)
                 artistTextField.isEnabled = false
                 venueTextField.isEnabled = false
                 dateTextField.isEnabled = false

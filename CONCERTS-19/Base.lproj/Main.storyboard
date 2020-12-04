@@ -423,6 +423,7 @@
                         <outlet property="leftBarButton" destination="21Y-mh-1aT" id="PlW-rG-La7"/>
                         <outlet property="mapView" destination="qSo-h2-Crk" id="idq-jV-O2R"/>
                         <outlet property="remoteButton" destination="gif-Bp-IUg" id="HTf-qx-u82"/>
+                        <outlet property="remoteLabel" destination="nVS-Tt-7vd" id="v76-8t-fAz"/>
                         <outlet property="saveBarButton" destination="mSs-AN-wDV" id="J8n-Hv-I0Z"/>
                         <outlet property="ticketLinkTextField" destination="EA6-c5-u5Z" id="cMe-A9-4kd"/>
                         <outlet property="ticketPriceTextField" destination="aq2-D8-66X" id="oym-rj-721"/>
