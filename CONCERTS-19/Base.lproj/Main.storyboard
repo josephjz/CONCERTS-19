@@ -37,10 +37,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ht9-cg-BAg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ht9-cg-BAg">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" name="ConcertPurpleColor"/>
-                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" name="ConcertPurpleColor"/>
                                 <color key="sectionIndexColor" name="ConcertPurpleColor"/>
                                 <color key="sectionIndexBackgroundColor" name="ConcertPurpleColor"/>
                                 <prototypes>
@@ -58,12 +59,12 @@
                                                         <constraint firstAttribute="width" constant="50" id="1ur-oh-C7u"/>
                                                         <constraint firstAttribute="height" constant="50" id="cXV-h9-5A3"/>
                                                     </constraints>
-                                                    <imageReference key="image" image="person.3.fill" catalog="system" renderingMode="original"/>
+                                                    <imageReference key="image" image="PurplePeopleNoWhite" renderingMode="original"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Odeza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLw-nn-LzD">
                                                     <rect key="frame" x="70" y="11" width="60.5" height="38"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="22"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="textColor" name="ConcertPurpleColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -76,7 +77,7 @@
                                                 <constraint firstItem="SLw-nn-LzD" firstAttribute="top" secondItem="KJs-lH-Lkp" secondAttribute="topMargin" id="wav-Wf-sBD"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="ConcertPurpleColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="artistLabel" destination="SLw-nn-LzD" id="fcM-bH-hiE"/>
@@ -183,7 +184,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fps-GX-Vfg">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Fps-GX-Vfg">
                                                     <rect key="frame" x="20" y="11" width="374" height="128"/>
                                                 </datePicker>
                                             </subviews>
@@ -409,12 +410,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vbr-bV-k6W"/>
+        <segue reference="XCG-VH-vcb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Computer" width="501" height="501"/>
         <image name="People" width="501" height="501"/>
-        <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="PurplePeopleNoWhite" width="501" height="501"/>
         <namedColor name="ConcertPurpleColor">
             <color red="0.17254901960784313" green="0.16470588235294117" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
