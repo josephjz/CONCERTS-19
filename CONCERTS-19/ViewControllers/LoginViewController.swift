@@ -106,7 +106,7 @@ extension LoginViewController : FUIAuthDelegate {
         
         // create a frame for a UIImageView to hold our logo
         let marginInsets: CGFloat = 5      // logo will be 16 points from L and R margins
-        let imageHeight: CGFloat = 650      // logo height
+        let imageHeight: CGFloat = 230      // logo height
         let imageY = self.view.center.y - imageHeight       // place bottom of UIImageView in the center of the login screen
         let logoFrame = CGRect(x: self.view.frame.origin.x + marginInsets, y: self.view.frame.origin.x + (3*marginInsets), width: self.view.frame.width - (marginInsets*2), height: imageHeight)
         

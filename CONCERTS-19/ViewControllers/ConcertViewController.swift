@@ -26,6 +26,7 @@ class ConcertViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setToolbarHidden(false, animated: true)
         concerts.loadData {
             self.tableView.reloadData()
         }
@@ -40,20 +41,6 @@ class ConcertViewController: UIViewController {
             destination.concert = concerts.concertArray[selectedIndexPath.row]
         } // typically we would have a "AddConcert" else block but do not need that with Snapshot listener because it will handle when docs are added
     }
-    
-//    // LEGGO (things that need to be changed (like array name) will be underlined as errors)
-//    @IBAction func unwindFromDetail(segue: UIStoryboardSegue) {
-//        let source = segue.source as! ConcertDetailViewController
-//        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//            concerts.concertArray[selectedIndexPath.row].artist = source.concert.artist
-//            tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
-//        } else { // if selected row is nil (clicked plus button)
-//            let newIndexPath = IndexPath(row: concerts.concertArray.count, section: 0)
-//            concerts.concertArray.append(source.concert)
-//            tableView.insertRows(at: [newIndexPath], with: .bottom)
-//            tableView.scrollToRow(at: newIndexPath, at: .bottom, animated: true)
-//        }
-//    }
 }
 
 extension ConcertViewController: UITableViewDelegate, UITableViewDataSource {

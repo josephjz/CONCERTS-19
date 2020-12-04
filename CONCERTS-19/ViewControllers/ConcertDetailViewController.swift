@@ -31,16 +31,17 @@ class ConcertDetailViewController: UITableViewController {
     //    }()
     
     let regionDistance : CLLocationDistance = 20000 // declares a value (20000 m) to use for the requested 20km map area
+    //CLLocationDegrees = 750.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // create the region, centered at the University's coordinates, and spanning horizontally and vertically by regionDistance
         //let region = MKCoordinateRegion(center: team.coordinate, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
         //mapView.setRegion(region, animated: true)
-        //datePicker = UIDatePicker() // instantiating instance of Date Picker
-        //datePicker?.datePickerMode = .dateAndTime
-        //datePicker?.addTarget(self, action: #selector(ConcertDetailTableViewController.dateChanged(datePicker:)), for: .valueChanged)
-        //dateTextField.inputView = datePicker
+        //let datePicker = UIDatePicker() // instantiating instance of Date Picker
+        //datePicker.datePickerMode = .dateAndTime
+        datePicker.addTarget(self, action: #selector(ConcertDetailViewController.showDatePicker), for: .valueChanged)
+        dateTextField.inputView = datePicker
         
         //if segue.identifier == "AddConcertRemote" {
         
@@ -79,21 +80,28 @@ class ConcertDetailViewController: UITableViewController {
     
     func updateFromUserInterface() {
         concert.artist = artistTextField.text!
+        concert.remote = true
         concert.ticketPrice = ticketPriceTextField.text!
         concert.ticketLink = ticketLinkTextField.text!
     }
     
-    func showDatePicker(){
+    @objc func showDatePicker(){
         //Formate Date
         datePicker.datePickerMode = .dateAndTime
         
         //ToolBar
         let toolbar = UIToolbar();
-        toolbar.sizeToFit()
+        let screenWidth = UIScreen.main.bounds.width
+        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))//1
+        datePicker.datePickerMode = .dateAndTime
+//        datePicker.addTarget(self, action: #selector(ConcertDetailViewController.showDatePicker), for: .valueChanged)
+//        dateTextField.inputView = datePicker
+
+        let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: screenWidth, height: 100.0)) //4
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
-        
+
         toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
         
         dateTextField.inputAccessoryView = toolbar
@@ -132,9 +140,6 @@ class ConcertDetailViewController: UITableViewController {
             navigationController?.popViewController(animated: true)
         }
     }
-    
-
-    
     
     @IBAction func leftBarButtonPressed(_ sender: UIBarButtonItem) {
         leaveViewController()
