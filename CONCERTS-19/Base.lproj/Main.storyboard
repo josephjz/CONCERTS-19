@@ -59,7 +59,7 @@
                                                         <constraint firstAttribute="width" constant="50" id="1ur-oh-C7u"/>
                                                         <constraint firstAttribute="height" constant="50" id="cXV-h9-5A3"/>
                                                     </constraints>
-                                                    <imageReference key="image" image="PurplePeopleNoWhite" renderingMode="original"/>
+                                                    <imageReference key="image" image="PurplePeople" renderingMode="original"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Odeza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLw-nn-LzD">
                                                     <rect key="frame" x="70" y="11" width="60.5" height="38"/>
@@ -124,7 +124,7 @@
         <scene sceneID="Zni-Cd-CEG">
             <objects>
                 <tableViewController id="KJV-cl-JrU" customClass="ConcertDetailViewController" customModule="CONCERTS_19" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="S0H-Gp-SVq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="S0H-Gp-SVq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -273,7 +273,7 @@
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="URL" textContentType="url"/>
                                                 </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TICKET LINK:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rH3-bT-VHU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TICKET LINK:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="rH3-bT-VHU">
                                                     <rect key="frame" x="20" y="5" width="125" height="34"/>
                                                     <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
                                                     <color key="textColor" name="ConcertPurpleColor"/>
@@ -389,6 +389,14 @@
                             <outlet property="delegate" destination="KJV-cl-JrU" id="9o9-Qz-4qz"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Find Venue" id="guD-xb-ooR">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="findVenuePressed:" destination="KJV-cl-JrU" id="afm-i4-3cv"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="xnA-1j-HuO">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="21Y-mh-1aT">
                             <connections>
@@ -413,6 +421,7 @@
                         <outlet property="saveBarButton" destination="mSs-AN-wDV" id="J8n-Hv-I0Z"/>
                         <outlet property="ticketLinkTextField" destination="EA6-c5-u5Z" id="cMe-A9-4kd"/>
                         <outlet property="ticketPriceTextField" destination="aq2-D8-66X" id="oym-rj-721"/>
+                        <outlet property="venueTextField" destination="xuy-he-iIf" id="zCf-eJ-boi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwD-Ed-oYt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -488,7 +497,7 @@
     <resources>
         <image name="Computer" width="501" height="501"/>
         <image name="People" width="501" height="501"/>
-        <image name="PurplePeopleNoWhite" width="501" height="501"/>
+        <image name="PurplePeople" width="501" height="501"/>
         <namedColor name="ConcertPurpleColor">
             <color red="0.17254901960784313" green="0.16470588235294117" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

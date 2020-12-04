@@ -15,10 +15,10 @@ class Concert: NSObject, MKAnnotation {
     var artist : String
     var date : Date
     var ticketPrice : String
-    var remote : Bool                       // FIGURE THIS OUT
+    var remote : Bool
     var ticketLink : String
-    var coordinate : CLLocationCoordinate2D     // don't forget IMPORT STATEMENT
-    //var attending :
+    var venue : String
+    var coordinate : CLLocationCoordinate2D
     var postingUserID : String
     var documentID : String
     
@@ -36,6 +36,10 @@ class Concert: NSObject, MKAnnotation {
         return "\(artist) Concert"
     }
     
+    var subtitle: String? {
+        return venue
+    }
+    
     // computed property of Concert Class called dictionary
     // it is a computed property because it does not hold values, but the values are computed using other properties! (makes sense)
     // this creates a dictionary of all the properties in our class
@@ -47,16 +51,17 @@ class Concert: NSObject, MKAnnotation {
         // need to figure out date part
         let timeIntervalDate = date.timeIntervalSince1970
         
-        return ["artist": artist, "date": timeIntervalDate, "ticketPrice": ticketPrice, "remote": remote, "ticketLink": ticketLink, "latitude": latitude, "longitude": longitude, "postingUserID": postingUserID, "documentID": documentID]
+        return ["artist": artist, "date": timeIntervalDate, "ticketPrice": ticketPrice, "remote": remote, "ticketLink": ticketLink, "venue": venue, "latitude": latitude, "longitude": longitude, "postingUserID": postingUserID, "documentID": documentID]
     }
     
-    init(artist: String, date: Date, ticketPrice: String, remote: Bool, ticketLink: String, coordinate: CLLocationCoordinate2D, postingUserID: String, documentID: String) {
+    init(artist: String, date: Date, ticketPrice: String, remote: Bool, ticketLink: String, venue: String, coordinate: CLLocationCoordinate2D, postingUserID: String, documentID: String) {
         
         self.artist = artist
         self.date = date
         self.ticketPrice = ticketPrice
         self.remote = remote
         self.ticketLink = ticketLink
+        self.venue = venue
         self.coordinate = coordinate
         self.postingUserID = postingUserID
         self.documentID = documentID
@@ -74,12 +79,13 @@ class Concert: NSObject, MKAnnotation {
         let ticketPrice = dictionary["ticketPrice"] as! String? ?? ""
         let remote = dictionary["remote"] as! Bool? ?? true
         let ticketLink = dictionary["ticketLink"] as! String? ?? ""
+        let venue = dictionary["venue"] as! String? ?? ""
         let latitude = dictionary["latitude"] as! CLLocationDegrees? ?? 0.0
         let longitude = dictionary["longitude"] as! CLLocationDegrees? ?? 0.0
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let postingUserID = dictionary["postingUserID"] as! String? ?? ""
         
-        self.init(artist: artist, date: date, ticketPrice: ticketPrice, remote: remote, ticketLink: ticketLink, coordinate: coordinate, postingUserID: postingUserID, documentID: "")
+        self.init(artist: artist, date: date, ticketPrice: ticketPrice, remote: remote, ticketLink: ticketLink, venue: venue, coordinate: coordinate, postingUserID: postingUserID, documentID: "")
     }
     
     
@@ -88,7 +94,7 @@ class Concert: NSObject, MKAnnotation {
     // this creates a new object of type Team
     
     convenience override init() {   // before having the map, we had just convenience init(), accept fix suggested to add override here
-        self.init(artist: "", date: Date(), ticketPrice: "", remote: true, ticketLink: "", coordinate: CLLocationCoordinate2D(), postingUserID: "", documentID: "")
+        self.init(artist: "", date: Date(), ticketPrice: "", remote: true, ticketLink: "", venue: "", coordinate: CLLocationCoordinate2D(), postingUserID: "", documentID: "")
     }
     
     // NOTE: If you keep the same programming conventions (e.g. a calculated property .dictionary that converts class properties to String: Any pairs, the name of the document stored in the class as .documentID) then the only thing you'll need to change is the document path (i.e. the lines containing "concerts" below.

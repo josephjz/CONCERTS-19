@@ -17,6 +17,7 @@ class ConcertDetailViewController: UITableViewController {
     @IBOutlet weak var artistTextField: UITextField!
     @IBOutlet weak var ticketPriceTextField: UITextField!
     @IBOutlet weak var ticketLinkTextField: UITextField!
+    @IBOutlet weak var venueTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var inPersonButton: UIButton!
     @IBOutlet weak var remoteButton: UIButton!
@@ -69,6 +70,7 @@ class ConcertDetailViewController: UITableViewController {
         ticketPriceTextField.text = concert.ticketPrice
         ticketLinkTextField.text = concert.ticketLink
         datePicker.date = concert.date
+        venueTextField.text = concert.venue
         // images handled in buttons
         updateMap()
     }
@@ -76,6 +78,7 @@ class ConcertDetailViewController: UITableViewController {
     func updateFromUserInterface() {
         concert.artist = artistTextField.text!
         concert.date = datePicker.date
+        concert.venue = venueTextField.text!
         // images handled in buttons
         concert.ticketPrice = ticketPriceTextField.text!
         concert.ticketLink = ticketLinkTextField.text!
@@ -153,25 +156,30 @@ class ConcertDetailViewController: UITableViewController {
         
     }
     
+    func updateButtonImages() {
+        var inPersonButtonImage = inPersonButton.isSelected ? "WhitePeoplePurpleBack" : "FadedPeople"
+        var remoteButtonImage = remoteButton.isSelected ? "Computer" : "People"
+        inPersonButton.imageView?.image = UIImage(named: "\(inPersonButtonImage)")
+        remoteButton.imageView?.image = UIImage(named: "\(remoteButtonImage)")
+    }
+    
     @IBAction func inPersonButtonPressed(_ sender: UIButton) {
         concert.remote = false
-        remoteButton.alpha = 0.5
-        inPersonButton.alpha = 1.0
+        updateButtonImages()
         // need to do something here that shows user which button they hit
     }
     
     @IBAction func remoteButtonPressed(_ sender: UIButton) {
         concert.remote = true
-        remoteButton.alpha = 1.0
-        inPersonButton.alpha = 0.5
+        updateButtonImages()
         // need to do something here that shows user which button they hit
     }
     
-    @IBAction func findLocationPressed(_sender: UIButton) {
-        
+    @IBAction func findVenuePressed(_ sender: UIBarButtonItem) {
+        let autocompleteController = GMSAutocompleteViewController()    // create Google AutoComplete View Controller
+        autocompleteController.delegate = self  // set delegate
+        present(autocompleteController, animated: true, completion: nil) // present it so that when user presses Find Venue, the Google AutoComplete dialogue pops up
     }
-    
-    
 }
 
 
@@ -201,18 +209,18 @@ extension ConcertDetailViewController: GMSAutocompleteViewControllerDelegate {
         //        print("Place ID: \(place.placeID)")
         //        print("Place attributions: \(place.attributions)")
         
-        // for our app, we want to take whatever is searched for and returned by Google as place.name and put it into our university property of our Team object
-        // place is returned by GOogle and it has a .name property (this is an optional)
+        // for our app, we want to take whatever is searched for and returned by Google as place.name and put it into our venue property of our Concert object
+        // place is returned by Google and it has a .name property (this is an optional)
         
         updateFromUserInterface() // call this first to get whatever the user has typed in text field of detail static table view
+        concert.venue = place.name ?? "Unknown Venue" // then update from places
         concert.coordinate = place.coordinate // save the place coordiate containing lat/lon of place to the place coord
-        updateUserInterface()  // then call this so that the team object has all of the latest values
-        updateMap() // then call this last to also update the mapview
+        updateUserInterface()  // then call this so that the concert object has all of the latest values
+        //updateMap() // then call this last to also update the mapview
         dismiss(animated: true, completion: nil)
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
         print("Error: ", error.localizedDescription)
     }
     
