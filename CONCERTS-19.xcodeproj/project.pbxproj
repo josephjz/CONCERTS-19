@@ -22,7 +22,6 @@
 		44D547FD25786F94005A7607 /* ConcertUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D547FC25786F94005A7607 /* ConcertUser.swift */; };
 		44D5480025786FFA005A7607 /* ConcertUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D547FF25786FFA005A7607 /* ConcertUsers.swift */; };
 		44D5484825787DE2005A7607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D5484725787DE2005A7607 /* Assets.xcassets */; };
-		44D5484B2578854D005A7607 /* ConcertTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D5484A2578854D005A7607 /* ConcertTypeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 		44D547FC25786F94005A7607 /* ConcertUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertUser.swift; sourceTree = "<group>"; };
 		44D547FF25786FFA005A7607 /* ConcertUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertUsers.swift; sourceTree = "<group>"; };
 		44D5484725787DE2005A7607 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		44D5484A2578854D005A7607 /* ConcertTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertTypeViewController.swift; sourceTree = "<group>"; };
 		475DE18ADD6298158D0956B6 /* Pods-CONCERTS-19.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CONCERTS-19.release.xcconfig"; path = "Target Support Files/Pods-CONCERTS-19/Pods-CONCERTS-19.release.xcconfig"; sourceTree = "<group>"; };
 		7E0785559E06800ED69AE13C /* Pods_CONCERTS_19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CONCERTS_19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D54C33B60DE076D81F22FABA /* Pods-CONCERTS-19.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CONCERTS-19.debug.xcconfig"; path = "Target Support Files/Pods-CONCERTS-19/Pods-CONCERTS-19.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				442AF89225780ADB00AFEBE8 /* LoginViewController.swift */,
 				44D546FB257819D1005A7607 /* ConcertViewController.swift */,
 				44580FC725792BA300128016 /* ConcertTableViewCell.swift */,
-				44D5484A2578854D005A7607 /* ConcertTypeViewController.swift */,
 				44D546F8257818F4005A7607 /* ConcertDetailViewController.swift */,
 			);
 			path = ViewControllers;
@@ -268,7 +265,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				44D5480025786FFA005A7607 /* ConcertUsers.swift in Sources */,
-				44D5484B2578854D005A7607 /* ConcertTypeViewController.swift in Sources */,
 				44D5479D257847B9005A7607 /* Concerts.swift in Sources */,
 				44D547FD25786F94005A7607 /* ConcertUser.swift in Sources */,
 				44D546FC257819D1005A7607 /* ConcertViewController.swift in Sources */,

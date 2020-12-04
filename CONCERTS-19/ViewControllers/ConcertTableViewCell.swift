@@ -15,9 +15,8 @@ class ConcertTableViewCell: UITableViewCell {
     var concert: Concert! {
         didSet {
             // update user interface
-            var image = concert.remote == true ? "desktopcomputer" : "person.3.fill"
+            var image = concert.remote == true ? "Computer" : "People"
             concertTypeImageView.image = UIImage(named: "\(image)")
-            concertTypeImageView.image?.withTintColor(.white)
             artistLabel.text = concert.artist
         }
     }

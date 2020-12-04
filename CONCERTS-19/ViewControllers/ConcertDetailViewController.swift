@@ -36,7 +36,7 @@ class ConcertDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // create the region, centered at the University's coordinates, and spanning horizontally and vertically by regionDistance
-        //let region = MKCoordinateRegion(center: team.coordinate, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        //let region = MKCoordinateRegion(center: concert.coordinate, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
         //mapView.setRegion(region, animated: true)
         //let datePicker = UIDatePicker() // instantiating instance of Date Picker
         //datePicker.datePickerMode = .dateAndTime
@@ -55,10 +55,6 @@ class ConcertDetailViewController: UITableViewController {
         if concert == nil {
             concert = Concert()
         }
-        
-        // create the region, centered at the Venue's coordinates, and spanning horizontally and vertically by regionDistance
-        let region = MKCoordinateRegion(center: concert.coordinate, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
-        mapView.setRegion(region, animated: true)
         
         updateUserInterface()
         
@@ -147,6 +143,7 @@ class ConcertDetailViewController: UITableViewController {
     
     @IBAction func saveBarButtonPressed(_ sender: UIBarButtonItem) {
         // When reusing this code, the only changes required may be to concert.saveData (you'll likley have a different object, and it is possible that you might pass in parameters if you're saving to a longer document reference path
+        print("SAVE HEY")
         updateFromUserInterface()
         concert.saveData { success in
             if success {
