@@ -15,6 +15,7 @@
 		442AF89B25780ADD00AFEBE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442AF89925780ADD00AFEBE8 /* LaunchScreen.storyboard */; };
 		44580FC825792BA300128016 /* ConcertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44580FC725792BA300128016 /* ConcertTableViewCell.swift */; };
 		4497C272257A86E800B70C26 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497C271257A86E800B70C26 /* APIKeys.swift */; };
+		449CC7C7257ACE06008CC5C5 /* UIBarButton+Hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449CC7C6257ACE06008CC5C5 /* UIBarButton+Hide.swift */; };
 		44D546F425780FEE005A7607 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44D546F325780FED005A7607 /* GoogleService-Info.plist */; };
 		44D546F9257818F4005A7607 /* ConcertDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D546F8257818F4005A7607 /* ConcertDetailViewController.swift */; };
 		44D546FC257819D1005A7607 /* ConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D546FB257819D1005A7607 /* ConcertViewController.swift */; };
@@ -35,6 +36,7 @@
 		442AF89C25780ADD00AFEBE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44580FC725792BA300128016 /* ConcertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertTableViewCell.swift; sourceTree = "<group>"; };
 		4497C271257A86E800B70C26 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIKeys.swift; path = ../../APIKeys.swift; sourceTree = "<group>"; };
+		449CC7C6257ACE06008CC5C5 /* UIBarButton+Hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIBarButton+Hide.swift"; path = "../../UIBarButton+Hide.swift"; sourceTree = "<group>"; };
 		44D546F325780FED005A7607 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		44D546F8257818F4005A7607 /* ConcertDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailViewController.swift; sourceTree = "<group>"; };
 		44D546FB257819D1005A7607 /* ConcertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				442AF88E25780ADB00AFEBE8 /* AppDelegate.swift */,
 				442AF89025780ADB00AFEBE8 /* SceneDelegate.swift */,
+				449CC7C6257ACE06008CC5C5 /* UIBarButton+Hide.swift */,
 				44D548222578710A005A7607 /* CustomClasses  */,
 				44D54821257870EE005A7607 /* ViewControllers */,
 				442AF89425780ADB00AFEBE8 /* Main.storyboard */,
@@ -272,6 +275,7 @@
 				44D5479D257847B9005A7607 /* Concerts.swift in Sources */,
 				44D547FD25786F94005A7607 /* ConcertUser.swift in Sources */,
 				44D546FC257819D1005A7607 /* ConcertViewController.swift in Sources */,
+				449CC7C7257ACE06008CC5C5 /* UIBarButton+Hide.swift in Sources */,
 				44580FC825792BA300128016 /* ConcertTableViewCell.swift in Sources */,
 				442AF89325780ADB00AFEBE8 /* LoginViewController.swift in Sources */,
 				44D546F9257818F4005A7607 /* ConcertDetailViewController.swift in Sources */,

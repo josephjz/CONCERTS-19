@@ -8,6 +8,14 @@
 import UIKit
 import GooglePlaces // needed for Autocomplete to get places
 import MapKit  //needed for map view to display location
+import Firebase
+
+private let dateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MMM d, yyyy, h:mm a"
+    return dateFormatter
+}()
+
 
 class ConcertDetailViewController: UITableViewController {
     
@@ -22,17 +30,10 @@ class ConcertDetailViewController: UITableViewController {
     @IBOutlet weak var inPersonButton: UIButton!
     @IBOutlet weak var remoteButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var findVenueBarButton: UIBarButtonItem!
     
     var concert : Concert!
-    
-    //let datePicker = UIDatePicker()
-    
-    //    private let dateFormatter: DateFormatter = {
-    //        let dateFormatter = DateFormatter()
-    //        dateFormatter.dateFormat = "MMM d, yyyy, h:mm a"
-    //        return dateFormatter
-    //    }()
-    
+   
     let regionDistance : CLLocationDistance = 20000 // declares a value (20000 m) to use for the requested 20km map area
     //CLLocationDegrees = 750.0
     
@@ -41,11 +42,6 @@ class ConcertDetailViewController: UITableViewController {
         // create the region, centered at the University's coordinates, and spanning horizontally and vertically by regionDistance
         //let region = MKCoordinateRegion(center: concert.coordinate, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
         //mapView.setRegion(region, animated: true)
-        //let datePicker = UIDatePicker() // instantiating instance of Date Picker
-        //datePicker.datePickerMode = .dateAndTime
-        datePicker.addTarget(self, action: #selector(ConcertDetailViewController.showDatePicker), for: .valueChanged)
-        dateTextField.inputView = datePicker
-        
         // hide keyboard if we tap outside of field
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
@@ -59,64 +55,56 @@ class ConcertDetailViewController: UITableViewController {
         
     }
     
-    //@objc func dateChanged(datePicker: UIDatePicker) {
-    // concert.date = datePicker.date
-    //dateTextField.text = "\(dateFormatter.string(from: concert.date))"
-    //view.endEditing(true)   // forces firstResponder (which is the datePicker) to dismiss itself
-    //}
-    
     func updateUserInterface() {
         artistTextField.text = concert.artist
         ticketPriceTextField.text = concert.ticketPrice
         ticketLinkTextField.text = concert.ticketLink
         datePicker.date = concert.date
+        dateTextField.text = dateFormatter.string(from: concert.date)
         venueTextField.text = concert.venue
-        // images handled in buttons
+        updateButtonImages(selectedInPerson: concert.remote)
         updateMap()
+        
+        // check if user that is logged in is user that posted this concert
+        if concert.documentID == "" {
+            print("new concert")
+        } else {
+            if concert.postingUserID == Auth.auth().currentUser?.uid {
+                // change save to update
+                saveBarButton.title = "Update"
+            } else {    // concert listed by diff user
+                saveBarButton.hide()
+                leftBarButton.title = "Back"
+                findVenueBarButton.hide()
+                remoteButton.isEnabled = false
+                inPersonButton.isEnabled = false
+                artistTextField.isEnabled = false
+                venueTextField.isEnabled = false
+                dateTextField.isEnabled = false
+                datePicker.isHidden = true
+                ticketLinkTextField.isEnabled = false
+                ticketPriceTextField.isEnabled = false
+            }
+        }
     }
     
     func updateFromUserInterface() {
         concert.artist = artistTextField.text!
         concert.date = datePicker.date
         concert.venue = venueTextField.text!
-        // images handled in buttons
         concert.ticketPrice = ticketPriceTextField.text!
         concert.ticketLink = ticketLinkTextField.text!
     }
     
-    @objc func showDatePicker(){
-        //Formate Date
-        datePicker.datePickerMode = .dateAndTime
-        
-        //ToolBar
-        let toolbar = UIToolbar();
-        let screenWidth = UIScreen.main.bounds.width
-        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 216))//1
-        datePicker.datePickerMode = .dateAndTime
-//        datePicker.addTarget(self, action: #selector(ConcertDetailViewController.showDatePicker), for: .valueChanged)
-//        dateTextField.inputView = datePicker
-
-        let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: screenWidth, height: 100.0)) //4
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
-
-        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
-        
-        dateTextField.inputAccessoryView = toolbar
-        dateTextField.inputView = datePicker
-    }
-    
-    @objc func donedatePicker(){
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM d, yyyy, h:mm a"
-        dateTextField.text = formatter.string(from: datePicker.date)
-        self.view.endEditing(true)
-    }
-    
-    @objc func cancelDatePicker(){
-        self.view.endEditing(true)
+    func updateButtonImages(selectedInPerson: Bool) {
+        concert.remote = selectedInPerson
+        if selectedInPerson {
+            inPersonButton.imageView?.image = UIImage(named: "People")
+            remoteButton.imageView?.image = UIImage(named: "FadedComputer")
+        } else {
+            inPersonButton.imageView?.image = UIImage(named: "FadedPeople")
+            remoteButton.imageView?.image = UIImage(named: "Computer")
+        }
     }
     
     
@@ -156,22 +144,20 @@ class ConcertDetailViewController: UITableViewController {
         
     }
     
-    func updateButtonImages() {
-        var inPersonButtonImage = inPersonButton.isSelected ? "WhitePeoplePurpleBack" : "FadedPeople"
-        var remoteButtonImage = remoteButton.isSelected ? "Computer" : "People"
-        inPersonButton.imageView?.image = UIImage(named: "\(inPersonButtonImage)")
-        remoteButton.imageView?.image = UIImage(named: "\(remoteButtonImage)")
+    
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        dateTextField.text = dateFormatter.string(from: sender.date)
     }
     
     @IBAction func inPersonButtonPressed(_ sender: UIButton) {
         concert.remote = false
-        updateButtonImages()
+        updateButtonImages(selectedInPerson: true)
         // need to do something here that shows user which button they hit
     }
     
     @IBAction func remoteButtonPressed(_ sender: UIButton) {
         concert.remote = true
-        updateButtonImages()
+        updateButtonImages(selectedInPerson: false)
         // need to do something here that shows user which button they hit
     }
     
