@@ -166,6 +166,12 @@ class ConcertDetailViewController: UITableViewController {
         inPersonButton.alpha = 0.5
         // need to do something here that shows user which button they hit
     }
+    
+    @IBAction func findLocationPressed(_sender: UIButton) {
+        
+    }
+    
+    
 }
 
 
