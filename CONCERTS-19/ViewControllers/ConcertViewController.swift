@@ -21,7 +21,6 @@ class ConcertViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,9 +28,20 @@ class ConcertViewController: UIViewController {
         navigationController?.setToolbarHidden(false, animated: true)
         concerts.loadData {
             self.tableView.reloadData()
+            for delete in self.concerts.concertArray {  // this for loop will delete the concerts that have already happened 
+                if delete.date < Date() {
+                    delete.deleteData(concert: delete) { (success) in
+                        if success {
+                            print("success")
+                        } else {
+                            print("😡 Delete unsuccessful")
+                        }
+                    }
+                }
+            }
+            self.concerts.concertArray.sort(by: {$0.date < $1.date}) // show the concerts in the table view by soonest to furthest away
         }
     }
-    
     
     // when the user selectes a table view cell, the data of that cell is passed over to concert view controller so it can be updated and saved by the user
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

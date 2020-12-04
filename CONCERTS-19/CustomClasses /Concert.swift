@@ -47,8 +47,6 @@ class Concert: NSObject, MKAnnotation {
     // so whenever we refer to an object of type Concert and its .dictionary property, we will be creating a dictionary that we can save to the cloud
     
     var dictionary : [String: Any] {
-        
-        // need to figure out date part
         let timeIntervalDate = date.timeIntervalSince1970
         
         return ["artist": artist, "date": timeIntervalDate, "ticketPrice": ticketPrice, "remote": remote, "ticketLink": ticketLink, "venue": venue, "latitude": latitude, "longitude": longitude, "postingUserID": postingUserID, "documentID": documentID]
@@ -70,7 +68,6 @@ class Concert: NSObject, MKAnnotation {
     // Concert convenience initializer that takes a dictionary as input parameter
     // data from cloud firestore is read back in to our app via a dictionary, so this convenience initializer takes a dicitonary that we get back from cloud firestore and will give us back an individual Concert object
     
-    
     convenience init(dictionary: [String: Any]) {
         
         let artist = dictionary["artist"] as! String? ?? ""
@@ -88,10 +85,9 @@ class Concert: NSObject, MKAnnotation {
         self.init(artist: artist, date: date, ticketPrice: ticketPrice, remote: remote, ticketLink: ticketLink, venue: venue, coordinate: coordinate, postingUserID: postingUserID, documentID: "")
     }
     
-    
     // use the convenience initializer in our code like this
     // let concert = Concert()
-    // this creates a new object of type Team
+    // this creates a new object of type Concert
     
     convenience override init() {   // before having the map, we had just convenience init(), accept fix suggested to add override here
         self.init(artist: "", date: Date(), ticketPrice: "", remote: true, ticketLink: "", venue: "", coordinate: CLLocationCoordinate2D(), postingUserID: "", documentID: "")
@@ -131,6 +127,18 @@ class Concert: NSObject, MKAnnotation {
                     self.documentID = ref!.documentID
                     completion(true)
                 }
+            }
+        }
+    }
+    
+    func deleteData(concert: Concert, completion: @escaping (Bool) -> ()) {
+        let db = Firestore.firestore()
+        db.collection("concerts").document(documentID).delete { (error) in
+            if let error = error {
+                print("😡 ERROR: deleting review documentID \(self.documentID). Error: \(error.localizedDescription)")
+                completion(false)
+            } else {
+                print("👍🏽 Successfully deleted document \(self.documentID)")
             }
         }
     }
