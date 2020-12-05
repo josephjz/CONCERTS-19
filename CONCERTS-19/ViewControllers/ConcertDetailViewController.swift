@@ -133,8 +133,16 @@ class ConcertDetailViewController: UITableViewController {
     @IBAction func saveBarButtonPressed(_ sender: UIBarButtonItem) {
         // When reusing this code, the only changes required may be to concert.saveData (you'll likley have a different object, and it is possible that you might pass in parameters if you're saving to a longer document reference path
         updateFromUserInterface()
+        //self.leaveViewController()
         concert.saveData { success in
             if success {
+//                if self.concert.remote == false {
+//                    self.oneButtonAlert(title: "COVID ADVISORY", message: "Practice social distancing and wear a mask.") {
+//                        self.leaveViewController()
+//                    }
+//                } else {
+//                    self.leaveViewController()
+//                }
                 self.leaveViewController()
             } else {
                 print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")

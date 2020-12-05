@@ -78,7 +78,6 @@ class ConcertUser {
     
     func saveIfNewUser(completion: @escaping (Bool) -> ()) {
         let db = Firestore.firestore()
-        
         let userRef = db.collection("users").document(documentID)   // create document reference to new users collection
         
         userRef.getDocument { (document, error) in
