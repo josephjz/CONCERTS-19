@@ -102,6 +102,8 @@ class ConcertDetailTableViewController: UITableViewController {
             inPersonButton.imageView?.image = UIImage(named: "People")
             remoteButton.imageView?.image = UIImage(named: "FadedComputer")
         }
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
     
@@ -171,17 +173,20 @@ class ConcertDetailTableViewController: UITableViewController {
 }
 
 
-//extension ConcertDetailViewController {
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch indexPath {
-//        case IndexPath(row: 5, section: 0):
-//            return concert.remote ? mapView.frame.height : 0
-//           // trying to simulate hiding the mapView
-//        default:
-//            return 44
-//        }
-//    }
-//}
+extension ConcertDetailTableViewController {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath {
+        case IndexPath(row: 1, section: 1):
+            return (concert.documentID == "" || concert.postingUserID == Auth.auth().currentUser?.uid) ? 52 : 0
+        case IndexPath(row: 0, section: 5):
+            return concert.remote ? 0 : 250
+        case IndexPath(row: 0, section: 4):
+            return 160
+        default:
+            return 44
+        }
+    }
+}
 
 
 
