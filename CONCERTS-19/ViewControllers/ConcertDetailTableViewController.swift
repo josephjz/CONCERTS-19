@@ -29,7 +29,6 @@ class ConcertDetailTableViewController: UITableViewController {
     @IBOutlet weak var inPersonButton: UIButton!
     @IBOutlet weak var remoteButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var findVenueBarButton: UIBarButtonItem!
     @IBOutlet weak var remoteLabel: UILabel!
     
     var concert : Concert!
@@ -73,7 +72,6 @@ class ConcertDetailTableViewController: UITableViewController {
                 saveBarButton.hide()
                 remoteLabel.text = "How You Can Attend:"
                 leftBarButton.title = "Back"
-                findVenueBarButton.hide()
                 remoteButton.isEnabled = false
                 inPersonButton.isEnabled = false
                 updateButtonImages(remote: concert.remote)
@@ -164,11 +162,12 @@ class ConcertDetailTableViewController: UITableViewController {
         // need to do something here that shows user which button they hit
     }
     
-    @IBAction func findVenuePressed(_ sender: UIBarButtonItem) {
+    @IBAction func venueTextFieldPressed(_ sender: UITextField) {
         let autocompleteController = GMSAutocompleteViewController()    // create Google AutoComplete View Controller
         autocompleteController.delegate = self  // set delegate
         present(autocompleteController, animated: true, completion: nil) // present it so that when user presses Find Venue, the Google AutoComplete dialogue pops up
     }
+    
 }
 
 
