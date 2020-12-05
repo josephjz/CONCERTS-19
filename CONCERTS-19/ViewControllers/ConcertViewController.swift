@@ -46,7 +46,7 @@ class ConcertViewController: UIViewController {
     // when the user selectes a table view cell, the data of that cell is passed over to concert view controller so it can be updated and saved by the user
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowConcert" {
-            let destination = segue.destination as! ConcertDetailViewController
+            let destination = segue.destination as! ConcertDetailTableViewController
             let selectedIndexPath = tableView.indexPathForSelectedRow!
             destination.concert = concerts.concertArray[selectedIndexPath.row]
         } // typically we would have a "AddConcert" else block but do not need that with Snapshot listener because it will handle when docs are added
