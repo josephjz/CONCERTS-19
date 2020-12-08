@@ -13,7 +13,6 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
     @IBAction func backInfoButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }

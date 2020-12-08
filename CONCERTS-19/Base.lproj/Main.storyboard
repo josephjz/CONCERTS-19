@@ -135,30 +135,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-8D-4q7">
-                                <rect key="frame" x="186" y="227" width="71" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concerts on the Home Screen are listed by date - so the ones you see on top are coming soon! " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-pm-OXY">
+                                <rect key="frame" x="20" y="417" width="374" height="67"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="19"/>
+                                <color key="textColor" name="ConcertPurpleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload and Update your own concerts as well so others don't miss out! " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="hqV-ai-Ax2">
+                                <rect key="frame" x="20" y="492" width="374" height="43"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="18"/>
+                                <color key="textColor" name="ConcertPurpleColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeScreen" translatesAutoresizingMaskIntoConstraints="NO" id="BIW-qZ-W2h">
+                                <rect key="frame" x="20" y="88" width="374" height="255"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BIW-qZ-W2h" secondAttribute="height" multiplier="371:253" id="cgs-17-rvG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your hub for all things concerts during this pandemic - both remote and socially distanced " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="yKq-YI-ZLL">
+                                <rect key="frame" x="20" y="351" width="374" height="36"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="15"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse the concerts uploaded by other users &amp; click on them to see details." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Yj4-vH-4fW">
+                                <rect key="frame" x="20" y="543" width="374" height="42"/>
+                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="18"/>
+                                <color key="textColor" name="ConcertPurpleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="37f-1N-45P"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yKq-YI-ZLL" firstAttribute="top" secondItem="BIW-qZ-W2h" secondAttribute="bottom" constant="8" symbolic="YES" id="10b-0B-2wL"/>
+                            <constraint firstItem="37f-1N-45P" firstAttribute="trailing" secondItem="hqV-ai-Ax2" secondAttribute="trailing" constant="20" id="6fd-3X-szh"/>
+                            <constraint firstItem="BIW-qZ-W2h" firstAttribute="leading" secondItem="37f-1N-45P" secondAttribute="leading" constant="20" id="7aB-Ma-ZBk"/>
+                            <constraint firstItem="37f-1N-45P" firstAttribute="trailing" secondItem="Yj4-vH-4fW" secondAttribute="trailing" constant="20" id="7cL-Ka-Ze6"/>
+                            <constraint firstItem="BIW-qZ-W2h" firstAttribute="top" secondItem="37f-1N-45P" secondAttribute="top" id="QFp-3k-ab5"/>
+                            <constraint firstItem="hqV-ai-Ax2" firstAttribute="top" secondItem="KCO-pm-OXY" secondAttribute="bottom" constant="8" symbolic="YES" id="TB5-iD-Zim"/>
+                            <constraint firstItem="yKq-YI-ZLL" firstAttribute="leading" secondItem="37f-1N-45P" secondAttribute="leading" constant="20" id="TBG-tX-sO0"/>
+                            <constraint firstItem="KCO-pm-OXY" firstAttribute="leading" secondItem="37f-1N-45P" secondAttribute="leading" constant="20" id="UIR-z3-Auz"/>
+                            <constraint firstItem="Yj4-vH-4fW" firstAttribute="top" secondItem="hqV-ai-Ax2" secondAttribute="bottom" constant="8" symbolic="YES" id="X0f-r0-3C7"/>
+                            <constraint firstItem="Yj4-vH-4fW" firstAttribute="leading" secondItem="37f-1N-45P" secondAttribute="leading" constant="20" id="Zul-7G-cTD"/>
+                            <constraint firstItem="hqV-ai-Ax2" firstAttribute="leading" secondItem="37f-1N-45P" secondAttribute="leading" constant="20" id="aVf-w8-MUS"/>
+                            <constraint firstItem="KCO-pm-OXY" firstAttribute="top" secondItem="yKq-YI-ZLL" secondAttribute="bottom" constant="30" id="atu-HN-SLr"/>
+                            <constraint firstItem="37f-1N-45P" firstAttribute="trailing" secondItem="BIW-qZ-W2h" secondAttribute="trailing" constant="20" id="hZc-C1-Un6"/>
+                            <constraint firstItem="37f-1N-45P" firstAttribute="trailing" secondItem="KCO-pm-OXY" secondAttribute="trailing" constant="20" id="j5A-E4-k9j"/>
+                            <constraint firstItem="37f-1N-45P" firstAttribute="trailing" secondItem="yKq-YI-ZLL" secondAttribute="trailing" constant="20" id="lmG-bO-h7O"/>
+                        </constraints>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Item" id="Umb-9J-VtB">
+                        <barButtonItem title="InfoRed" image="info.circle" catalog="system" id="Umb-9J-VtB">
+                            <color key="tintColor" name="ConcertRedColor"/>
                             <connections>
                                 <action selector="backInfoButtonPressed:" destination="9hB-6s-Uxr" id="FaX-Rj-e4w"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="bEJ-Hx-Guc"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ll-5C-nZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2905.7971014492755" y="682.36607142857144"/>
+            <point key="canvasLocation" x="2902.898550724638" y="681.02678571428567"/>
         </scene>
         <!--Concert Detail Table View Controller-->
         <scene sceneID="crK-Im-fSJ">
@@ -531,7 +571,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Eq7-b4-Epv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="2rU-f3-Q8v" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" toolbarHidden="NO" id="2rU-f3-Q8v" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="bMr-zM-ytb"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ipV-cR-afD">
@@ -542,6 +582,7 @@
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jsy-NS-YtO">
                         <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="ConcertPurpleColor"/>
                     </toolbar>
                     <connections>
                         <segue destination="9hB-6s-Uxr" kind="relationship" relationship="rootViewController" id="cya-Yo-NbI"/>
@@ -557,11 +598,15 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Computer" width="501" height="501"/>
+        <image name="HomeScreen" width="501" height="501"/>
         <image name="People" width="501" height="501"/>
         <image name="PurplePeople" width="501" height="501"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <namedColor name="ConcertPurpleColor">
             <color red="0.17254901960784313" green="0.16470588235294117" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ConcertRedColor">
+            <color red="0.78431372549019607" green="0.29019607843137257" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

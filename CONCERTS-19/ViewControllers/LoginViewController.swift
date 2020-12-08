@@ -105,14 +105,13 @@ extension LoginViewController : FUIAuthDelegate {
         loginViewController.view.backgroundColor = UIColor.white
         
         // create a frame for a UIImageView to hold our logo
-        let marginInsets: CGFloat = 5      // logo will be 16 points from L and R margins
         let imageHeight: CGFloat = 500      // logo height
-        //let imageY = self.view.center.y + imageHeight       // place bottom of UIImageView in the center of the login screen
-        let logoFrame = CGRect(x: self.view.frame.origin.x + marginInsets, y: self.view.frame.origin.x + (3*marginInsets), width: self.view.frame.width - (marginInsets*2), height: imageHeight)
+        let logoFrame = CGRect(x: 0, y: 20, width: self.view.frame.width, height: imageHeight)
         
         // create the UIImageView using the frame created above and add the "logo" image
         let logoImageView = UIImageView(frame: logoFrame)
         logoImageView.image = UIImage(named: "HomeScreen")
+        logoImageView.contentMode = .center     // set imageView to Aspect Fit
         logoImageView.contentMode = .scaleAspectFit     // set imageView to Aspect Fit
         loginViewController.view.addSubview(logoImageView)      // add imageView to the login controller's main view
         return loginViewController
