@@ -6,6 +6,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,7 +32,7 @@
         <!--Concert View Controller-->
         <scene sceneID="zPl-sS-62d">
             <objects>
-                <viewController id="7XR-wS-uwK" customClass="ConcertViewController" customModule="CONCERTS_19" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="7XR-wS-uwK" customClass="ConcertViewController" customModule="CONCERTS_19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="npS-cr-WMf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,7 +88,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RS5-PB-wM1"/>
-                        <color key="backgroundColor" name="ConcertPurpleColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RS5-PB-wM1" firstAttribute="trailing" secondItem="ht9-cg-BAg" secondAttribute="trailing" id="5BS-yJ-cy2"/>
                             <constraint firstItem="ht9-cg-BAg" firstAttribute="top" secondItem="RS5-PB-wM1" secondAttribute="top" id="Nma-N2-r68"/>
@@ -95,7 +96,15 @@
                             <constraint firstItem="ht9-cg-BAg" firstAttribute="leading" secondItem="RS5-PB-wM1" secondAttribute="leading" id="r8A-WU-iSe"/>
                         </constraints>
                     </view>
-                    <toolbarItems/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" image="info.circle" catalog="system" id="UbI-a9-WdT">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="infoButtonPressed:" destination="7XR-wS-uwK" id="fKC-XI-cun"/>
+                                <segue destination="2rU-f3-Q8v" kind="show" identifier="ShowInfo" id="R5l-WH-rSg"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="1Th-An-Vkr">
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="JIF-OI-mWn">
                             <connections>
@@ -108,6 +117,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="ht9-cg-BAg" id="EF1-VK-MFg"/>
                     </connections>
@@ -116,6 +126,39 @@
                 <exit id="uQf-Jj-Yer" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1995.6521739130437" y="-38.169642857142854"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="LeH-2P-kRn">
+            <objects>
+                <viewController id="9hB-6s-Uxr" customClass="InfoViewController" customModule="CONCERTS_19" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cPz-EM-EiV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9O-8D-4q7">
+                                <rect key="frame" x="186" y="227" width="71" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="37f-1N-45P"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="Umb-9J-VtB">
+                            <connections>
+                                <action selector="backInfoButtonPressed:" destination="9hB-6s-Uxr" id="FaX-Rj-e4w"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="bEJ-Hx-Guc"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ll-5C-nZa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2905.7971014492755" y="682.36607142857144"/>
         </scene>
         <!--Concert Detail Table View Controller-->
         <scene sceneID="crK-Im-fSJ">
@@ -174,7 +217,7 @@
                                                     <color key="textColor" name="ConcertPurpleColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="VsC-9k-6yz">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="VsC-9k-6yz">
                                                     <rect key="frame" x="93" y="5" width="261" height="34"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -202,6 +245,9 @@
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="iKz-vv-EeW">
                                                     <rect key="frame" x="20" y="0.0" width="334" height="52"/>
                                                     <color key="tintColor" name="ConcertPurpleColor"/>
+                                                    <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                                        <!--1970-01-01 11:00:00 +0000-->
+                                                    </date>
                                                     <connections>
                                                         <action selector="datePickerChanged:" destination="FZb-Mz-aS0" eventType="valueChanged" id="fhe-iE-jjA"/>
                                                     </connections>
@@ -482,6 +528,29 @@
             </objects>
             <point key="canvasLocation" x="3257" y="-468"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Eq7-b4-Epv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="2rU-f3-Q8v" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="bMr-zM-ytb"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ipV-cR-afD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jsy-NS-YtO">
+                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="9hB-6s-Uxr" kind="relationship" relationship="rootViewController" id="cya-Yo-NbI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOK-gH-nv5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1995.6521739130437" y="681.69642857142856"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="59q-Ik-LJm"/>
@@ -490,8 +559,12 @@
         <image name="Computer" width="501" height="501"/>
         <image name="People" width="501" height="501"/>
         <image name="PurplePeople" width="501" height="501"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <namedColor name="ConcertPurpleColor">
             <color red="0.17254901960784313" green="0.16470588235294117" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

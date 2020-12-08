@@ -51,6 +51,12 @@ class ConcertViewController: UIViewController {
             destination.concert = concerts.concertArray[selectedIndexPath.row]
         } // typically we would have a "AddConcert" else block but do not need that with Snapshot listener because it will handle when docs are added
     }
+    
+    @IBAction func infoButtonPressed(_ sender: UIBarButtonItem) {
+        present(InfoViewController(), animated: true, completion: nil)
+    }
+    
+    
 }
 
 extension ConcertViewController: UITableViewDelegate, UITableViewDataSource {
