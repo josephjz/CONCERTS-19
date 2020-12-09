@@ -32,6 +32,9 @@ class ConcertDetailTableViewController: UITableViewController {
     @IBOutlet weak var remoteLabel: UILabel!
     @IBOutlet weak var getTicketButton: UIButton!
     
+    let regionDistance: CLLocationDegrees = 550.0
+
+    
     var concert : Concert!
     
     override func viewDidLoad() {
@@ -46,7 +49,8 @@ class ConcertDetailTableViewController: UITableViewController {
             saveBarButton.isEnabled = false
             concert = Concert()
         }
-        
+        setupMapView()
+
         updateUserInterface()
     }
     
@@ -145,6 +149,11 @@ class ConcertDetailTableViewController: UITableViewController {
             UIApplication.shared.open((URL(string: "https://www.google.com")!))
             print("google")
         }
+    }
+    
+    func setupMapView() {
+        let region = MKCoordinateRegion(center: concert.coordinate, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        mapView.setRegion(region, animated: true)
     }
     
     func disableSave() {
