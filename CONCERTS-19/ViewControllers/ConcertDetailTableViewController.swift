@@ -69,7 +69,6 @@ class ConcertDetailTableViewController: UITableViewController {
             if concert.postingUserID == Auth.auth().currentUser?.uid {
                 // change save to update
                 saveBarButton.title = "Update"
-                getTicketButton.isHidden = true
                 updateButtonImages(remote: concert.remote)
             } else {    // concert listed by diff user
                 saveBarButton.hide()
