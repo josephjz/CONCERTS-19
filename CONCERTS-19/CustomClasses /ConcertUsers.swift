@@ -9,7 +9,6 @@ import Foundation
 import Firebase
 
 // all of our plural-named classes have arrays inside of them of the singlular-named classes to be able to load in a bunch of elements of a particular type
-//
 
 class ConcertUsers {
     var userArray : [ConcertUser] = []
