@@ -139,15 +139,6 @@ class ConcertDetailTableViewController: UITableViewController {
         } else {
             useThis = "http://www." + useThis
         }
-        //var url = URL(string: useThis)!
-        //print("url \(url)")
-        //        if UIApplication.shared.canOpenURL(url) {
-        //            print("tried to open")
-        //            UIApplication.shared.open(url)
-        //        } else {
-        //            UIApplication.shared.open((URL(string: "https://www.google.com")!))
-        //            print("google")
-        //        }
         if useThis.contains(".com") {
             var url = URL(string: useThis)!
             UIApplication.shared.open(url)

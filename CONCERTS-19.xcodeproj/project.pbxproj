@@ -16,9 +16,7 @@
 		44580FC825792BA300128016 /* ConcertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44580FC725792BA300128016 /* ConcertTableViewCell.swift */; };
 		446474CF25800BFF00F53F4E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446474CE25800BFF00F53F4E /* InfoViewController.swift */; };
 		4497C272257A86E800B70C26 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4497C271257A86E800B70C26 /* APIKeys.swift */; };
-		4499DBD925807EA800B0E4A6 /* AlertTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4499DBD825807EA800B0E4A6 /* AlertTableViewController.swift */; };
 		449CC7C7257ACE06008CC5C5 /* UIBarButton+Hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449CC7C6257ACE06008CC5C5 /* UIBarButton+Hide.swift */; };
-		44C8DDDD257B03C1004BF356 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8DDDC257B03C1004BF356 /* UIViewController+Alert.swift */; };
 		44C8DDE0257B0683004BF356 /* ConcertDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8DDDF257B0683004BF356 /* ConcertDetailTableViewController.swift */; };
 		44D546F425780FEE005A7607 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 44D546F325780FED005A7607 /* GoogleService-Info.plist */; };
 		44D546FC257819D1005A7607 /* ConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D546FB257819D1005A7607 /* ConcertViewController.swift */; };
@@ -40,9 +38,7 @@
 		44580FC725792BA300128016 /* ConcertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertTableViewCell.swift; sourceTree = "<group>"; };
 		446474CE25800BFF00F53F4E /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4497C271257A86E800B70C26 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIKeys.swift; path = ../../APIKeys.swift; sourceTree = "<group>"; };
-		4499DBD825807EA800B0E4A6 /* AlertTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewController.swift; sourceTree = "<group>"; };
 		449CC7C6257ACE06008CC5C5 /* UIBarButton+Hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIBarButton+Hide.swift"; path = "../../UIBarButton+Hide.swift"; sourceTree = "<group>"; };
-		44C8DDDC257B03C1004BF356 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "../../UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		44C8DDDF257B0683004BF356 /* ConcertDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertDetailTableViewController.swift; sourceTree = "<group>"; };
 		44D546F325780FED005A7607 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		44D546FB257819D1005A7607 /* ConcertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcertViewController.swift; sourceTree = "<group>"; };
@@ -92,8 +88,6 @@
 				442AF88E25780ADB00AFEBE8 /* AppDelegate.swift */,
 				442AF89025780ADB00AFEBE8 /* SceneDelegate.swift */,
 				449CC7C6257ACE06008CC5C5 /* UIBarButton+Hide.swift */,
-				44C8DDDC257B03C1004BF356 /* UIViewController+Alert.swift */,
-				4499DBD825807EA800B0E4A6 /* AlertTableViewController.swift */,
 				44D548222578710A005A7607 /* CustomClasses  */,
 				44D54821257870EE005A7607 /* ViewControllers */,
 				442AF89425780ADB00AFEBE8 /* Main.storyboard */,
@@ -282,8 +276,6 @@
 				4497C272257A86E800B70C26 /* APIKeys.swift in Sources */,
 				44D5480025786FFA005A7607 /* ConcertUsers.swift in Sources */,
 				44D5479D257847B9005A7607 /* Concerts.swift in Sources */,
-				44C8DDDD257B03C1004BF356 /* UIViewController+Alert.swift in Sources */,
-				4499DBD925807EA800B0E4A6 /* AlertTableViewController.swift in Sources */,
 				44D547FD25786F94005A7607 /* ConcertUser.swift in Sources */,
 				44D546FC257819D1005A7607 /* ConcertViewController.swift in Sources */,
 				449CC7C7257ACE06008CC5C5 /* UIBarButton+Hide.swift in Sources */,
