@@ -169,7 +169,6 @@ class ConcertDetailTableViewController: UITableViewController {
         autocompleteController.delegate = self  // set delegate
         present(autocompleteController, animated: true, completion: nil) // present it so that when user presses Find Venue, the Google AutoComplete dialogue pops up
     }
-    
 }
 
 

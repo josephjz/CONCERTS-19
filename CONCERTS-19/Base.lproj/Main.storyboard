@@ -136,13 +136,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concerts on the Home Screen are listed by date - so the ones you see on top are coming soon! " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-pm-OXY">
-                                <rect key="frame" x="20" y="373" width="374" height="67"/>
+                                <rect key="frame" x="20" y="372.5" width="374" height="67.5"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="19"/>
                                 <color key="textColor" name="ConcertPurpleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse the concerts uploaded by other users &amp; click on them to see details." textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="hqV-ai-Ax2">
-                                <rect key="frame" x="20" y="460" width="374" height="41"/>
+                                <rect key="frame" x="20" y="460" width="374" height="40.5"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <color key="textColor" name="ConcertPurpleColor"/>
                                 <nil key="highlightedColor"/>
@@ -154,13 +154,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your hub for all things concerts during this pandemic - both remote and socially distanced " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="yKq-YI-ZLL">
-                                <rect key="frame" x="20" y="307" width="374" height="36"/>
+                                <rect key="frame" x="20" y="307" width="374" height="35.5"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload and Update your own concerts as well so others don't miss out! " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Yj4-vH-4fW">
-                                <rect key="frame" x="20" y="509" width="374" height="40"/>
+                                <rect key="frame" x="20" y="508.5" width="374" height="40.5"/>
                                 <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                 <color key="textColor" name="ConcertPurpleColor"/>
                                 <nil key="highlightedColor"/>
