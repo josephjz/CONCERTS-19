@@ -148,7 +148,7 @@ class ConcertDetailTableViewController: UITableViewController {
     }
     
     func disableSave() {
-        if (dateFormatter.string(from: datePicker.date) == dateFormatter.string(from: Date())) || ticketLinkTextField.text == "" || artistTextField.text == "" || ticketPriceTextField.text == ""  {
+        if (dateFormatter.string(from: datePicker.date) == dateFormatter.string(from: Date())) || ticketLinkTextField.text == "" || artistTextField.text == "" || ticketPriceTextField.text == "" || ( (inPersonButton.imageView?.image == UIImage(named: "People")) && (remoteButton.imageView?.image == UIImage(named: "Computer")) ) {
             saveBarButton.isEnabled = false
         } else {
             saveBarButton.isEnabled = true

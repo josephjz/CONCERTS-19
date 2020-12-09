@@ -60,8 +60,8 @@
                                                     </constraints>
                                                     <imageReference key="image" image="PurplePeople" renderingMode="original"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Odeza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLw-nn-LzD">
-                                                    <rect key="frame" x="70" y="11" width="70.5" height="33"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Odeza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="SLw-nn-LzD">
+                                                    <rect key="frame" x="70" y="11" width="321" height="33"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="22"/>
                                                     <color key="textColor" name="ConcertPurpleColor"/>
                                                     <nil key="highlightedColor"/>
@@ -69,6 +69,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="zP2-rh-KEK" secondAttribute="bottom" constant="5" id="5bM-MY-pcB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SLw-nn-LzD" secondAttribute="trailing" constant="3" id="7mu-hZ-XbS"/>
                                                 <constraint firstItem="zP2-rh-KEK" firstAttribute="top" secondItem="KJs-lH-Lkp" secondAttribute="top" constant="5" id="E84-zj-fD5"/>
                                                 <constraint firstItem="SLw-nn-LzD" firstAttribute="leading" secondItem="zP2-rh-KEK" secondAttribute="trailing" constant="10" id="RPK-Qw-RsG"/>
                                                 <constraint firstItem="SLw-nn-LzD" firstAttribute="bottom" secondItem="KJs-lH-Lkp" secondAttribute="bottomMargin" id="sdY-oD-xeI"/>
@@ -218,15 +219,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ARTIST NAME " borderStyle="roundedRect" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="GyX-Vv-ZB2">
-                                                    <rect key="frame" x="105.5" y="5" width="248.5" height="34"/>
+                                                    <rect key="frame" x="99" y="5" width="255" height="34"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                     <connections>
                                                         <action selector="artistNamePressed:" destination="FZb-Mz-aS0" eventType="editingChanged" id="hZz-vg-RTi"/>
                                                     </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARTIST:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLg-nQ-18V">
-                                                    <rect key="frame" x="20" y="5" width="75.5" height="34"/>
+                                                    <rect key="frame" x="20" y="5" width="76" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="76" id="wkj-zc-6QS"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
                                                     <color key="textColor" name="ConcertPurpleColor"/>
                                                     <nil key="highlightedColor"/>
@@ -237,7 +241,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="GyX-Vv-ZB2" secondAttribute="trailing" constant="20" symbolic="YES" id="8N4-RG-rga"/>
                                                 <constraint firstAttribute="bottom" secondItem="GyX-Vv-ZB2" secondAttribute="bottom" constant="5" id="TLQ-Gb-yGN"/>
                                                 <constraint firstItem="RLg-nQ-18V" firstAttribute="top" secondItem="gsR-hU-QMG" secondAttribute="top" constant="5" id="XYu-wb-c8w"/>
-                                                <constraint firstItem="GyX-Vv-ZB2" firstAttribute="leading" secondItem="RLg-nQ-18V" secondAttribute="trailing" constant="10" id="esO-rY-2Hh"/>
+                                                <constraint firstItem="GyX-Vv-ZB2" firstAttribute="leading" secondItem="RLg-nQ-18V" secondAttribute="trailing" constant="3" id="esO-rY-2Hh"/>
                                                 <constraint firstItem="GyX-Vv-ZB2" firstAttribute="top" secondItem="gsR-hU-QMG" secondAttribute="top" constant="5" id="gf3-mN-2z6"/>
                                                 <constraint firstItem="RLg-nQ-18V" firstAttribute="leading" secondItem="gsR-hU-QMG" secondAttribute="leading" constant="20" symbolic="YES" id="wjh-84-oeY"/>
                                             </constraints>
@@ -261,19 +265,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="VsC-9k-6yz">
-                                                    <rect key="frame" x="93" y="5" width="261" height="34"/>
+                                                    <rect key="frame" x="86" y="5" width="268" height="34"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="58a-hT-SfX" firstAttribute="leading" secondItem="kZs-qZ-YfU" secondAttribute="leading" constant="20" symbolic="YES" id="2U8-fI-pTG"/>
-                                                <constraint firstItem="VsC-9k-6yz" firstAttribute="leading" secondItem="58a-hT-SfX" secondAttribute="trailing" constant="10" id="Ig9-5z-jgf"/>
+                                                <constraint firstItem="VsC-9k-6yz" firstAttribute="leading" secondItem="58a-hT-SfX" secondAttribute="trailing" constant="3" id="Ig9-5z-jgf"/>
                                                 <constraint firstAttribute="bottom" secondItem="VsC-9k-6yz" secondAttribute="bottom" constant="5" id="JLM-m2-Dey"/>
                                                 <constraint firstItem="58a-hT-SfX" firstAttribute="top" secondItem="kZs-qZ-YfU" secondAttribute="top" constant="5" id="KTL-Ca-gGX"/>
                                                 <constraint firstAttribute="bottom" secondItem="58a-hT-SfX" secondAttribute="bottom" constant="5" id="SYc-xN-luK"/>
                                                 <constraint firstItem="VsC-9k-6yz" firstAttribute="top" secondItem="kZs-qZ-YfU" secondAttribute="top" constant="5" id="VI1-nR-aiL"/>
-                                                <constraint firstItem="VsC-9k-6yz" firstAttribute="leading" secondItem="58a-hT-SfX" secondAttribute="trailing" constant="10" id="aXk-q3-YvJ"/>
+                                                <constraint firstItem="VsC-9k-6yz" firstAttribute="leading" secondItem="58a-hT-SfX" secondAttribute="trailing" constant="3" id="aXk-q3-YvJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="VsC-9k-6yz" secondAttribute="trailing" constant="20" symbolic="YES" id="xJd-aA-0qp"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -322,12 +326,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2J7-1l-xns">
-                                                    <rect key="frame" x="173" y="5" width="11" height="34"/>
+                                                    <rect key="frame" x="166" y="5" width="11" height="34"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tlm-gb-qAI">
-                                                    <rect key="frame" x="185" y="5" width="169" height="34"/>
+                                                    <rect key="frame" x="178" y="5" width="176" height="34"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     <connections>
@@ -344,7 +348,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Tlm-gb-qAI" secondAttribute="trailing" constant="20" symbolic="YES" id="Kxz-j2-9vA"/>
                                                 <constraint firstItem="2J7-1l-xns" firstAttribute="top" secondItem="bOH-MH-1Gv" secondAttribute="top" constant="5" id="Qhi-gO-h7X"/>
                                                 <constraint firstAttribute="bottom" secondItem="Tlm-gb-qAI" secondAttribute="bottom" constant="5" id="WNd-oV-gGH"/>
-                                                <constraint firstItem="2J7-1l-xns" firstAttribute="leading" secondItem="oVX-yQ-7tY" secondAttribute="trailing" constant="10" id="itH-xG-Q84"/>
+                                                <constraint firstItem="2J7-1l-xns" firstAttribute="leading" secondItem="oVX-yQ-7tY" secondAttribute="trailing" constant="3" id="itH-xG-Q84"/>
                                                 <constraint firstAttribute="bottom" secondItem="2J7-1l-xns" secondAttribute="bottom" constant="5" id="wBf-VZ-euH"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -361,14 +365,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TICKET LINK: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERz-tf-OqS">
-                                                    <rect key="frame" x="20" y="5" width="129.5" height="34"/>
+                                                    <rect key="frame" x="20" y="5" width="130" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="SvS-FR-40x"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
                                                     <color key="textColor" name="ConcertPurpleColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zhc-p4-3Dd">
-                                                    <rect key="frame" x="159.5" y="5" width="194.5" height="34"/>
-                                                    <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Zhc-p4-3Dd">
+                                                    <rect key="frame" x="153" y="5" width="201" height="34"/>
+                                                    <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                                     <connections>
                                                         <action selector="ticketLinkPressed:" destination="FZb-Mz-aS0" eventType="editingChanged" id="qf4-Vn-66E"/>
@@ -376,13 +383,13 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Zhc-p4-3Dd" firstAttribute="top" secondItem="QX1-rP-4fY" secondAttribute="top" constant="5" id="4Wu-9k-I3h"/>
-                                                <constraint firstAttribute="bottom" secondItem="ERz-tf-OqS" secondAttribute="bottom" constant="5" id="7j5-y2-4hG"/>
-                                                <constraint firstAttribute="trailing" secondItem="Zhc-p4-3Dd" secondAttribute="trailing" constant="20" symbolic="YES" id="Pba-9o-bTx"/>
-                                                <constraint firstItem="ERz-tf-OqS" firstAttribute="leading" secondItem="QX1-rP-4fY" secondAttribute="leading" constant="20" symbolic="YES" id="Svs-eM-dwv"/>
-                                                <constraint firstAttribute="bottom" secondItem="Zhc-p4-3Dd" secondAttribute="bottom" constant="5" id="jbx-jp-P84"/>
-                                                <constraint firstItem="ERz-tf-OqS" firstAttribute="top" secondItem="QX1-rP-4fY" secondAttribute="top" constant="5" id="utN-rD-6le"/>
-                                                <constraint firstItem="Zhc-p4-3Dd" firstAttribute="leading" secondItem="ERz-tf-OqS" secondAttribute="trailing" constant="10" id="yir-hd-Rdn"/>
+                                                <constraint firstItem="ERz-tf-OqS" firstAttribute="leading" secondItem="QX1-rP-4fY" secondAttribute="leading" constant="20" symbolic="YES" id="D4g-Vm-kP7"/>
+                                                <constraint firstItem="Zhc-p4-3Dd" firstAttribute="top" secondItem="QX1-rP-4fY" secondAttribute="top" constant="5" id="IMG-J7-0q5"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zhc-p4-3Dd" secondAttribute="trailing" constant="20" symbolic="YES" id="LSU-CF-Htn"/>
+                                                <constraint firstItem="ERz-tf-OqS" firstAttribute="top" secondItem="QX1-rP-4fY" secondAttribute="top" constant="5" id="XBk-dH-UtI"/>
+                                                <constraint firstAttribute="bottom" secondItem="Zhc-p4-3Dd" secondAttribute="bottom" constant="5" id="lA5-6V-G2g"/>
+                                                <constraint firstItem="Zhc-p4-3Dd" firstAttribute="leading" secondItem="ERz-tf-OqS" secondAttribute="trailing" constant="3" id="rhF-jX-XB0"/>
+                                                <constraint firstAttribute="bottom" secondItem="ERz-tf-OqS" secondAttribute="bottom" constant="5" id="szU-eO-Tft"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -457,7 +464,7 @@
                                                     <rect key="frame" x="0.0" y="49" width="374" height="201"/>
                                                 </mapView>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q8z-8a-mOj">
-                                                    <rect key="frame" x="104" y="5" width="250" height="34"/>
+                                                    <rect key="frame" x="97" y="5" width="257" height="34"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -470,7 +477,7 @@
                                                 <constraint firstItem="E8I-aG-6iX" firstAttribute="leading" secondItem="c8C-JQ-Jq5" secondAttribute="leading" id="GL6-DO-BVc"/>
                                                 <constraint firstItem="q8z-8a-mOj" firstAttribute="top" secondItem="c8C-JQ-Jq5" secondAttribute="top" constant="5" id="HgW-9C-V8u"/>
                                                 <constraint firstItem="E8I-aG-6iX" firstAttribute="top" secondItem="Lzo-rQ-RRn" secondAttribute="bottom" constant="10" id="I5a-Gb-QrO"/>
-                                                <constraint firstItem="q8z-8a-mOj" firstAttribute="leading" secondItem="Lzo-rQ-RRn" secondAttribute="trailing" constant="10" id="JAf-av-wuE"/>
+                                                <constraint firstItem="q8z-8a-mOj" firstAttribute="leading" secondItem="Lzo-rQ-RRn" secondAttribute="trailing" constant="3" id="JAf-av-wuE"/>
                                                 <constraint firstItem="E8I-aG-6iX" firstAttribute="top" secondItem="Lzo-rQ-RRn" secondAttribute="bottom" constant="10" id="OUz-hV-gEe"/>
                                                 <constraint firstItem="Lzo-rQ-RRn" firstAttribute="top" secondItem="c8C-JQ-Jq5" secondAttribute="top" constant="5" id="Oqs-Iz-yyx"/>
                                                 <constraint firstAttribute="trailing" secondItem="q8z-8a-mOj" secondAttribute="trailing" constant="20" symbolic="YES" id="UMy-Hv-MEj"/>
