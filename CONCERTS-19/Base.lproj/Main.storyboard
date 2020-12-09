@@ -405,9 +405,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r14-Wg-y1N">
-                                                    <rect key="frame" x="62" y="38" width="111" height="111"/>
+                                                    <rect key="frame" x="62" y="38.5" width="111" height="111"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="r14-Wg-y1N" secondAttribute="height" multiplier="1:1" id="szJ-9b-Mag"/>
+                                                        <constraint firstAttribute="width" constant="111" id="JGo-ia-v8k"/>
+                                                        <constraint firstAttribute="height" constant="111" id="QVH-gb-mQp"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="People"/>
                                                     <connections>
@@ -415,15 +416,16 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click for In Person or Remote:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6F-oh-NNA">
-                                                    <rect key="frame" x="62.5" y="16" width="249.5" height="20"/>
+                                                    <rect key="frame" x="62.5" y="16" width="249.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="17"/>
                                                     <color key="textColor" name="ConcertPurpleColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6T-JQ-sQm">
-                                                    <rect key="frame" x="200" y="38" width="111" height="111"/>
+                                                    <rect key="frame" x="200" y="38.5" width="111" height="111"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="g6T-JQ-sQm" secondAttribute="height" multiplier="1:1" id="7GA-N1-ZHg"/>
+                                                        <constraint firstAttribute="width" constant="111" id="A5U-11-YhP"/>
+                                                        <constraint firstAttribute="height" constant="111" id="VqR-ZV-HOl"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="Computer"/>
                                                     <connections>
@@ -432,17 +434,12 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="g6T-JQ-sQm" firstAttribute="leading" secondItem="r14-Wg-y1N" secondAttribute="trailing" constant="27" id="0vK-dc-PSx"/>
-                                                <constraint firstItem="r14-Wg-y1N" firstAttribute="bottom" secondItem="77w-EN-Gyb" secondAttribute="bottomMargin" id="59M-qa-KgP"/>
-                                                <constraint firstItem="g6T-JQ-sQm" firstAttribute="leading" secondItem="r14-Wg-y1N" secondAttribute="trailing" constant="27" id="Iy1-NY-iR7"/>
-                                                <constraint firstItem="r14-Wg-y1N" firstAttribute="leading" secondItem="77w-EN-Gyb" secondAttribute="leadingMargin" constant="42" id="Jan-cd-2TE"/>
-                                                <constraint firstItem="r14-Wg-y1N" firstAttribute="top" secondItem="D6F-oh-NNA" secondAttribute="bottom" constant="2" id="Og4-OM-hyX"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="g6T-JQ-sQm" secondAttribute="trailing" constant="43" id="TM3-RE-kI6"/>
-                                                <constraint firstItem="g6T-JQ-sQm" firstAttribute="top" secondItem="D6F-oh-NNA" secondAttribute="bottom" constant="2" id="aA5-pj-XVI"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="g6T-JQ-sQm" secondAttribute="trailing" constant="43" id="hZb-YF-umB"/>
-                                                <constraint firstItem="g6T-JQ-sQm" firstAttribute="bottom" secondItem="77w-EN-Gyb" secondAttribute="bottomMargin" id="mpO-c7-SeE"/>
-                                                <constraint firstItem="D6F-oh-NNA" firstAttribute="centerX" secondItem="77w-EN-Gyb" secondAttribute="centerX" id="oRv-Dv-hvY"/>
-                                                <constraint firstItem="D6F-oh-NNA" firstAttribute="top" secondItem="77w-EN-Gyb" secondAttribute="topMargin" constant="5" id="suf-j0-7jB"/>
+                                                <constraint firstItem="D6F-oh-NNA" firstAttribute="top" secondItem="77w-EN-Gyb" secondAttribute="topMargin" constant="5" id="6EF-W2-VTO"/>
+                                                <constraint firstItem="r14-Wg-y1N" firstAttribute="leading" secondItem="77w-EN-Gyb" secondAttribute="leadingMargin" constant="42" id="H8A-tT-444"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="g6T-JQ-sQm" secondAttribute="trailing" constant="43" id="Sw8-Sg-hsp"/>
+                                                <constraint firstItem="r14-Wg-y1N" firstAttribute="top" secondItem="D6F-oh-NNA" secondAttribute="bottom" constant="2" id="gdE-92-H1G"/>
+                                                <constraint firstItem="D6F-oh-NNA" firstAttribute="centerX" secondItem="77w-EN-Gyb" secondAttribute="centerX" id="kiK-H9-DKH"/>
+                                                <constraint firstItem="g6T-JQ-sQm" firstAttribute="top" secondItem="D6F-oh-NNA" secondAttribute="bottom" constant="2" id="zsI-aV-XYJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
