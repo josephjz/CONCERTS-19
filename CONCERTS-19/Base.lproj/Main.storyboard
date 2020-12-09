@@ -221,6 +221,9 @@
                                                     <rect key="frame" x="105.5" y="5" width="248.5" height="34"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no"/>
+                                                    <connections>
+                                                        <action selector="artistNamePressed:" destination="FZb-Mz-aS0" eventType="editingChanged" id="hZz-vg-RTi"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARTIST:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLg-nQ-18V">
                                                     <rect key="frame" x="20" y="5" width="75.5" height="34"/>
@@ -282,7 +285,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="iKz-vv-EeW">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="iKz-vv-EeW">
                                                     <rect key="frame" x="20" y="0.0" width="334" height="52"/>
                                                     <color key="tintColor" name="ConcertPurpleColor"/>
                                                     <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
@@ -324,13 +327,16 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tlm-gb-qAI">
-                                                    <rect key="frame" x="189" y="5" width="165" height="34"/>
+                                                    <rect key="frame" x="185" y="5" width="169" height="34"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    <connections>
+                                                        <action selector="ticketPricePressed:" destination="FZb-Mz-aS0" eventType="editingDidEnd" id="tux-Xh-18a"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Tlm-gb-qAI" firstAttribute="leading" secondItem="2J7-1l-xns" secondAttribute="trailing" constant="5" id="17m-XN-CfW"/>
+                                                <constraint firstItem="Tlm-gb-qAI" firstAttribute="leading" secondItem="2J7-1l-xns" secondAttribute="trailing" constant="1" id="17m-XN-CfW"/>
                                                 <constraint firstItem="oVX-yQ-7tY" firstAttribute="leading" secondItem="bOH-MH-1Gv" secondAttribute="leading" constant="20" symbolic="YES" id="5XY-Ck-nCE"/>
                                                 <constraint firstItem="Tlm-gb-qAI" firstAttribute="top" secondItem="bOH-MH-1Gv" secondAttribute="top" constant="5" id="7jQ-C3-XLl"/>
                                                 <constraint firstAttribute="bottom" secondItem="oVX-yQ-7tY" secondAttribute="bottom" constant="5" id="9Qq-bz-a1p"/>
@@ -364,6 +370,9 @@
                                                     <rect key="frame" x="159.5" y="5" width="194.5" height="34"/>
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                                    <connections>
+                                                        <action selector="ticketLinkPressed:" destination="FZb-Mz-aS0" eventType="editingChanged" id="qf4-Vn-66E"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -530,6 +539,7 @@
                         <outlet property="artistTextField" destination="GyX-Vv-ZB2" id="ORs-ho-UD6"/>
                         <outlet property="datePicker" destination="iKz-vv-EeW" id="L8j-HW-cdy"/>
                         <outlet property="dateTextField" destination="VsC-9k-6yz" id="iIt-2c-p85"/>
+                        <outlet property="getTicketButton" destination="PYb-Tl-hM4" id="L8r-oR-L2A"/>
                         <outlet property="inPersonButton" destination="r14-Wg-y1N" id="qAL-uS-mDY"/>
                         <outlet property="leftBarButton" destination="nyw-4a-IIH" id="VMO-md-R1H"/>
                         <outlet property="mapView" destination="E8I-aG-6iX" id="x6a-uw-886"/>

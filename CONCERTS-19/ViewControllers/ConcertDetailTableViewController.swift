@@ -17,7 +17,7 @@ private let dateFormatter: DateFormatter = {
 }()
 
 class ConcertDetailTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var leftBarButton: UIBarButtonItem!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var dateTextField: UITextField!
@@ -30,12 +30,13 @@ class ConcertDetailTableViewController: UITableViewController {
     @IBOutlet weak var remoteButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var remoteLabel: UILabel!
+    @IBOutlet weak var getTicketButton: UIButton!
     
     var concert : Concert!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // hide keyboard if we tap outside of field
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         tap.cancelsTouchesInView = false
@@ -68,12 +69,14 @@ class ConcertDetailTableViewController: UITableViewController {
             if concert.postingUserID == Auth.auth().currentUser?.uid {
                 // change save to update
                 saveBarButton.title = "Update"
+                getTicketButton.isHidden = true
                 updateButtonImages(remote: concert.remote)
             } else {    // concert listed by diff user
                 saveBarButton.hide()
                 remoteLabel.text = "How You Can Attend:"
                 leftBarButton.title = "Back"
                 remoteButton.isEnabled = false
+                getTicketButton.isHidden = false
                 inPersonButton.isEnabled = false
                 updateButtonImages(remote: concert.remote)
                 artistTextField.isEnabled = false
@@ -136,12 +139,29 @@ class ConcertDetailTableViewController: UITableViewController {
         } else {
             useThis = "http://www." + useThis
         }
-        var url = URL(string: useThis)!
-        if UIApplication.shared.canOpenURL(url) {
-            print(url)
+        //var url = URL(string: useThis)!
+        //print("url \(url)")
+        //        if UIApplication.shared.canOpenURL(url) {
+        //            print("tried to open")
+        //            UIApplication.shared.open(url)
+        //        } else {
+        //            UIApplication.shared.open((URL(string: "https://www.google.com")!))
+        //            print("google")
+        //        }
+        if useThis.contains(".com") {
+            var url = URL(string: useThis)!
             UIApplication.shared.open(url)
         } else {
             UIApplication.shared.open((URL(string: "https://www.google.com")!))
+            print("google")
+        }
+    }
+    
+    func disableSave() {
+        if (dateFormatter.string(from: datePicker.date) == dateFormatter.string(from: Date())) || ticketLinkTextField.text == "" || artistTextField.text == "" || ticketPriceTextField.text == ""  {
+            saveBarButton.isEnabled = false
+        } else {
+            saveBarButton.isEnabled = true
         }
     }
     
@@ -165,28 +185,40 @@ class ConcertDetailTableViewController: UITableViewController {
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         print("sender.date: \(dateFormatter.string(from: sender.date))")
         print("current date: \(dateFormatter.string(from: Date()))")
-        if dateFormatter.string(from: sender.date) == dateFormatter.string(from: Date()) {
-            saveBarButton.isEnabled = false
-        } else {
-            saveBarButton.isEnabled = true
-        }
+        disableSave()
         dateTextField.text = dateFormatter.string(from: sender.date)
     }
     
     @IBAction func inPersonButtonPressed(_ sender: UIButton) {
+        disableSave()
         updateButtonImages(remote: false)
-        // need to do something here that shows user which button they hit
     }
     
     @IBAction func remoteButtonPressed(_ sender: UIButton) {
+        disableSave()
         updateButtonImages(remote: true)
-        // need to do something here that shows user which button they hit
+    }
+    
+    @IBAction func ticketLinkPressed(_ sender: UITextField) {
+        disableSave()
+    }
+    
+    @IBAction func ticketPricePressed(_ sender: UITextField) {
+        disableSave()
+    }
+    
+    @IBAction func artistNamePressed(_ sender: UITextField) {
+        disableSave()
     }
     
     @IBAction func venueTextFieldPressed(_ sender: UITextField) {
+        //saveBarButton.isEnabled = venueTextField.text == "" ? false : true
+        disableSave()
         let autocompleteController = GMSAutocompleteViewController()    // create Google AutoComplete View Controller
         autocompleteController.delegate = self  // set delegate
         present(autocompleteController, animated: true, completion: nil) // present it so that when user presses Find Venue, the Google AutoComplete dialogue pops up
+        disableSave()
+
     }
     
     @IBAction func getTicketsPressed(_ sender: UIButton) {
@@ -201,7 +233,7 @@ class ConcertDetailTableViewController: UITableViewController {
             openLink()
         }
     }
-
+    
 }
 
 
@@ -266,5 +298,5 @@ extension ConcertDetailTableViewController: GMSAutocompleteViewControllerDelegat
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
-
+    
 }
