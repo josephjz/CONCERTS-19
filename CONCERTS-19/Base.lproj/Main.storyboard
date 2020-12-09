@@ -379,54 +379,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="" id="19O-ee-AOZ">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="250" id="H3V-K1-Oob">
-                                        <rect key="frame" x="20" y="400" width="374" height="250"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H3V-K1-Oob" id="c8C-JQ-Jq5">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="250"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VENUE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzo-rQ-RRn">
-                                                    <rect key="frame" x="20" y="5" width="74" height="34"/>
-                                                    <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8I-aG-6iX">
-                                                    <rect key="frame" x="0.0" y="49" width="374" height="201"/>
-                                                </mapView>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q8z-8a-mOj">
-                                                    <rect key="frame" x="104" y="5" width="250" height="34"/>
-                                                    <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="venueTextFieldPressed:" destination="FZb-Mz-aS0" eventType="editingDidBegin" id="ztJ-ci-euQ"/>
-                                                    </connections>
-                                                </textField>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Lzo-rQ-RRn" firstAttribute="leading" secondItem="c8C-JQ-Jq5" secondAttribute="leading" constant="20" symbolic="YES" id="CEl-jc-tw9"/>
-                                                <constraint firstItem="E8I-aG-6iX" firstAttribute="leading" secondItem="c8C-JQ-Jq5" secondAttribute="leading" id="GL6-DO-BVc"/>
-                                                <constraint firstItem="q8z-8a-mOj" firstAttribute="top" secondItem="c8C-JQ-Jq5" secondAttribute="top" constant="5" id="HgW-9C-V8u"/>
-                                                <constraint firstItem="E8I-aG-6iX" firstAttribute="top" secondItem="Lzo-rQ-RRn" secondAttribute="bottom" constant="10" id="I5a-Gb-QrO"/>
-                                                <constraint firstItem="q8z-8a-mOj" firstAttribute="leading" secondItem="Lzo-rQ-RRn" secondAttribute="trailing" constant="10" id="JAf-av-wuE"/>
-                                                <constraint firstItem="E8I-aG-6iX" firstAttribute="top" secondItem="Lzo-rQ-RRn" secondAttribute="bottom" constant="10" id="OUz-hV-gEe"/>
-                                                <constraint firstItem="Lzo-rQ-RRn" firstAttribute="top" secondItem="c8C-JQ-Jq5" secondAttribute="top" constant="5" id="Oqs-Iz-yyx"/>
-                                                <constraint firstAttribute="trailing" secondItem="q8z-8a-mOj" secondAttribute="trailing" constant="20" symbolic="YES" id="UMy-Hv-MEj"/>
-                                                <constraint firstAttribute="bottom" secondItem="E8I-aG-6iX" secondAttribute="bottom" id="V5l-Qi-y4D"/>
-                                                <constraint firstItem="E8I-aG-6iX" firstAttribute="top" secondItem="q8z-8a-mOj" secondAttribute="bottom" constant="10" id="tNX-W1-RVQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="E8I-aG-6iX" secondAttribute="trailing" id="x81-Cy-NgO"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection id="OCv-cH-QEp">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="160" id="9xS-qU-AWP">
-                                        <rect key="frame" x="20" y="686" width="374" height="160"/>
+                                        <rect key="frame" x="20" y="396" width="374" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9xS-qU-AWP" id="77w-EN-Gyb">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="160"/>
@@ -473,6 +429,50 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="" id="19O-ee-AOZ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="250" id="H3V-K1-Oob">
+                                        <rect key="frame" x="20" y="596" width="374" height="250"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H3V-K1-Oob" id="c8C-JQ-Jq5">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VENUE:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzo-rQ-RRn">
+                                                    <rect key="frame" x="20" y="5" width="74" height="34"/>
+                                                    <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" rotateEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8I-aG-6iX">
+                                                    <rect key="frame" x="0.0" y="49" width="374" height="201"/>
+                                                </mapView>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q8z-8a-mOj">
+                                                    <rect key="frame" x="104" y="5" width="250" height="34"/>
+                                                    <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="venueTextFieldPressed:" destination="FZb-Mz-aS0" eventType="editingDidBegin" id="ztJ-ci-euQ"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Lzo-rQ-RRn" firstAttribute="leading" secondItem="c8C-JQ-Jq5" secondAttribute="leading" constant="20" symbolic="YES" id="CEl-jc-tw9"/>
+                                                <constraint firstItem="E8I-aG-6iX" firstAttribute="leading" secondItem="c8C-JQ-Jq5" secondAttribute="leading" id="GL6-DO-BVc"/>
+                                                <constraint firstItem="q8z-8a-mOj" firstAttribute="top" secondItem="c8C-JQ-Jq5" secondAttribute="top" constant="5" id="HgW-9C-V8u"/>
+                                                <constraint firstItem="E8I-aG-6iX" firstAttribute="top" secondItem="Lzo-rQ-RRn" secondAttribute="bottom" constant="10" id="I5a-Gb-QrO"/>
+                                                <constraint firstItem="q8z-8a-mOj" firstAttribute="leading" secondItem="Lzo-rQ-RRn" secondAttribute="trailing" constant="10" id="JAf-av-wuE"/>
+                                                <constraint firstItem="E8I-aG-6iX" firstAttribute="top" secondItem="Lzo-rQ-RRn" secondAttribute="bottom" constant="10" id="OUz-hV-gEe"/>
+                                                <constraint firstItem="Lzo-rQ-RRn" firstAttribute="top" secondItem="c8C-JQ-Jq5" secondAttribute="top" constant="5" id="Oqs-Iz-yyx"/>
+                                                <constraint firstAttribute="trailing" secondItem="q8z-8a-mOj" secondAttribute="trailing" constant="20" symbolic="YES" id="UMy-Hv-MEj"/>
+                                                <constraint firstAttribute="bottom" secondItem="E8I-aG-6iX" secondAttribute="bottom" id="V5l-Qi-y4D"/>
+                                                <constraint firstItem="E8I-aG-6iX" firstAttribute="top" secondItem="q8z-8a-mOj" secondAttribute="bottom" constant="10" id="tNX-W1-RVQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="E8I-aG-6iX" secondAttribute="trailing" id="x81-Cy-NgO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="" id="HVq-7d-WhU">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="pGp-Sq-LbV">
@@ -489,6 +489,9 @@
                                                     <state key="normal" title="Get Tickets!">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="getTicketsPressed:" destination="FZb-Mz-aS0" eventType="touchUpInside" id="ql6-HV-13m"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

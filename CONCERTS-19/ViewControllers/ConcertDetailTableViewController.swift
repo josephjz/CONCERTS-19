@@ -169,6 +169,15 @@ class ConcertDetailTableViewController: UITableViewController {
         autocompleteController.delegate = self  // set delegate
         present(autocompleteController, animated: true, completion: nil) // present it so that when user presses Find Venue, the Google AutoComplete dialogue pops up
     }
+    
+    @IBAction func getTicketsPressed(_ sender: UIButton) {
+        var url = URL(string: "\(concert.ticketLink)")!
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.open((URL(string: "https://www.google.com")!))
+        }
+    }
 }
 
 
