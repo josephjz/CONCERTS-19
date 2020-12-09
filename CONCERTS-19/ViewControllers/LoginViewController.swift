@@ -51,7 +51,6 @@ class LoginViewController: UIViewController {
                 }
             }
             performSegue(withIdentifier: "FirstShowSegue", sender: nil)
-            // have a valid user, but want to check to see if we have userDoc for them
         }
     }
     

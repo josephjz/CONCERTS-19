@@ -131,13 +131,13 @@ class ConcertDetailTableViewController: UITableViewController {
     }
     
     func openLink() {
-        var useThis = concert.ticketLink.lowercased()   // fix capitalization
+        var useThis = concert.ticketLink
         if useThis.starts(with: "www.") {
-            useThis = "http://" + useThis
-        } else if useThis.starts(with: "http://www.") {
+            useThis = "https://" + useThis
+        } else if useThis.starts(with: "https://www.") || useThis.starts(with: "https://") {
             print("good to go ")
         } else {
-            useThis = "http://www." + useThis
+            useThis = "https://www." + useThis
         }
         if useThis.contains(".com") {
             var url = URL(string: useThis)!
@@ -203,7 +203,6 @@ class ConcertDetailTableViewController: UITableViewController {
     }
     
     @IBAction func venueTextFieldPressed(_ sender: UITextField) {
-        //saveBarButton.isEnabled = venueTextField.text == "" ? false : true
         disableSave()
         let autocompleteController = GMSAutocompleteViewController()    // create Google AutoComplete View Controller
         autocompleteController.delegate = self  // set delegate
@@ -255,12 +254,6 @@ extension ConcertDetailTableViewController: GMSAutocompleteViewControllerDelegat
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        
-        // commented print statements are given on the website
-        //        print("Place name: \(place.name)")
-        //        print("Place ID: \(place.placeID)")
-        //        print("Place attributions: \(place.attributions)")
-        
         // for our app, we want to take whatever is searched for and returned by Google as place.name and put it into our venue property of our Concert object
         // place is returned by Google and it has a .name property (this is an optional)
         
@@ -268,7 +261,6 @@ extension ConcertDetailTableViewController: GMSAutocompleteViewControllerDelegat
         concert.venue = place.name ?? "Unknown Venue" // then update from places
         concert.coordinate = place.coordinate // save the place coordiate containing lat/lon of place to the place coord
         updateUserInterface()  // then call this so that the concert object has all of the latest values
-        //updateMap() // then call this last to also update the mapview
         dismiss(animated: true, completion: nil)
     }
     
