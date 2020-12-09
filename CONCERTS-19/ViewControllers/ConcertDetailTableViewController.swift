@@ -42,6 +42,7 @@ class ConcertDetailTableViewController: UITableViewController {
         self.view.addGestureRecognizer(tap)
         
         if concert == nil {
+            saveBarButton.isEnabled = false
             concert = Concert()
         }
         
@@ -55,7 +56,6 @@ class ConcertDetailTableViewController: UITableViewController {
         datePicker.date = concert.date
         dateTextField.text = dateFormatter.string(from: concert.date)
         venueTextField.text = concert.venue
-        //updateButtonImages(remote: concert.remote)
         inPersonButton.imageView?.image = UIImage(named: "People")
         remoteButton.imageView?.image = UIImage(named: "Computer")
         updateMap()
@@ -63,6 +63,7 @@ class ConcertDetailTableViewController: UITableViewController {
         // check if user that is logged in is user that posted this concert
         if concert.documentID == "" {
             print("new concert")
+            dateTextField.text = ""
         } else {
             if concert.postingUserID == Auth.auth().currentUser?.uid {
                 // change save to update
@@ -152,16 +153,8 @@ class ConcertDetailTableViewController: UITableViewController {
     @IBAction func saveBarButtonPressed(_ sender: UIBarButtonItem) {
         // When reusing this code, the only changes required may be to concert.saveData (you'll likley have a different object, and it is possible that you might pass in parameters if you're saving to a longer document reference path
         updateFromUserInterface()
-        //self.leaveViewController()
         concert.saveData { success in
             if success {
-//                if self.concert.remote == false {
-//                    self.oneButtonAlert(title: "COVID ADVISORY", message: "Practice social distancing and wear a mask.") {
-//                        self.leaveViewController()
-//                    }
-//                } else {
-//                    self.leaveViewController()
-//                }
                 self.leaveViewController()
             } else {
                 print("*** ERROR: Couldn't leave this view controller because data wasn't saved.")
@@ -170,6 +163,13 @@ class ConcertDetailTableViewController: UITableViewController {
     }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        print("sender.date: \(dateFormatter.string(from: sender.date))")
+        print("current date: \(dateFormatter.string(from: Date()))")
+        if dateFormatter.string(from: sender.date) == dateFormatter.string(from: Date()) {
+            saveBarButton.isEnabled = false
+        } else {
+            saveBarButton.isEnabled = true
+        }
         dateTextField.text = dateFormatter.string(from: sender.date)
     }
     
@@ -200,20 +200,6 @@ class ConcertDetailTableViewController: UITableViewController {
         } else {
             openLink()
         }
-
-        
-//        if concert.remote == false {
-//            let alert = UIAlertController(title: "COVID-19 Advisory", message: "Please mask up and practice social distancing if you attend this event.", preferredStyle: .alert)
-//            let defaultAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction!) in
-//                return completed()
-//            }
-//            alertController.addAction(defaultAction)
-//            self.present(alert, animated: true) {
-//                self.openLink()
-//            }
-//        } else {
-//            openLink()
-//        }
     }
 
 }
