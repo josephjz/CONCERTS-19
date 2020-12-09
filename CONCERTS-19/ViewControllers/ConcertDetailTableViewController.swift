@@ -138,7 +138,7 @@ class ConcertDetailTableViewController: UITableViewController {
         } else {
             useThis = "https://www." + useThis
         }
-        if useThis.contains(".com") {
+        if useThis.contains(".com") || useThis.contains(".edu") || useThis.contains(".org") {
             var url = URL(string: useThis)!
             UIApplication.shared.open(url)
         } else {
