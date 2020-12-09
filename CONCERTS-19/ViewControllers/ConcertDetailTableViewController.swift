@@ -64,15 +64,11 @@ class ConcertDetailTableViewController: UITableViewController {
         inPersonButton.imageView?.image = UIImage(named: "People")
         remoteButton.imageView?.image = UIImage(named: "Computer")
         updateMap()
-        //updateButtonImages(remote: concert.remote)
         
         // check if user that is logged in is user that posted this concert
         if concert.documentID == "" {
             print("new concert")
             dateTextField.text = ""
-            //updateButtonImages(remote: concert.remote)
-            //inPersonButton.imageView?.image = UIImage(named: "People")
-            //remoteButton.imageView?.image = UIImage(named: "Computer")
         } else {
             if concert.postingUserID == Auth.auth().currentUser?.uid {
                 // change save to update
@@ -102,7 +98,6 @@ class ConcertDetailTableViewController: UITableViewController {
         concert.venue = venueTextField.text!
         concert.ticketPrice = ticketPriceTextField.text!
         concert.ticketLink = ticketLinkTextField.text!
-        //concert.remote = remoteButton.imageView?.image == UIImage(named: "FadedPeople") ? true : false
     }
     
     func updateButtonImages(remote: Bool) {
