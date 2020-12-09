@@ -331,7 +331,7 @@
                                                     <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     <connections>
-                                                        <action selector="ticketPricePressed:" destination="FZb-Mz-aS0" eventType="editingDidEnd" id="tux-Xh-18a"/>
+                                                        <action selector="ticketPricePressed:" destination="FZb-Mz-aS0" eventType="editingChanged" id="9pV-gB-3ah"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
