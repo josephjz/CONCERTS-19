@@ -126,6 +126,25 @@ class ConcertDetailTableViewController: UITableViewController {
         }
     }
     
+    func openLink() {
+        var useThis = concert.ticketLink.lowercased()   // fix capitalization
+        if useThis.starts(with: "www.") {
+            useThis = "http://" + useThis
+        } else if useThis.starts(with: "http://www.") {
+            print("good to go ")
+        } else {
+            useThis = "http://www." + useThis
+        }
+        var url = URL(string: useThis)!
+        if UIApplication.shared.canOpenURL(url) {
+            print(url)
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.open((URL(string: "https://www.google.com")!))
+        }
+    }
+    
+    
     @IBAction func leftBarButtonPressed(_ sender: UIBarButtonItem) {
         leaveViewController()
     }
@@ -171,13 +190,32 @@ class ConcertDetailTableViewController: UITableViewController {
     }
     
     @IBAction func getTicketsPressed(_ sender: UIButton) {
-        var url = URL(string: "\(concert.ticketLink)")!
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url)
+        if !concert.remote {
+            let alertController = UIAlertController(title: "COVID-19 Advisory", message: "Please mask up and practice social distancing if you attend this event.", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .destructive, handler: { (action) in
+                self.openLink()
+            })
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
         } else {
-            UIApplication.shared.open((URL(string: "https://www.google.com")!))
+            openLink()
         }
+
+        
+//        if concert.remote == false {
+//            let alert = UIAlertController(title: "COVID-19 Advisory", message: "Please mask up and practice social distancing if you attend this event.", preferredStyle: .alert)
+//            let defaultAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction!) in
+//                return completed()
+//            }
+//            alertController.addAction(defaultAction)
+//            self.present(alert, animated: true) {
+//                self.openLink()
+//            }
+//        } else {
+//            openLink()
+//        }
     }
+
 }
 
 
