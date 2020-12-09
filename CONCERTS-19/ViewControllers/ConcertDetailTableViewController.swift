@@ -175,12 +175,16 @@ class ConcertDetailTableViewController: UITableViewController {
 extension ConcertDetailTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath {
-        case IndexPath(row: 1, section: 1):
+        case IndexPath(row: 1, section: 1): // if you are the lister, then u should see the data picker, otherwise hide it
             return (concert.documentID == "" || concert.postingUserID == Auth.auth().currentUser?.uid) ? 52 : 0
-        case IndexPath(row: 0, section: 5):
-            return concert.remote ? 0 : 250
+        case IndexPath(row: 0, section: 3): // if you are viewing someone elses concert, hide the ticket link
+            return (concert.documentID == "" || concert.postingUserID == Auth.auth().currentUser?.uid) ? 44 : 0
         case IndexPath(row: 0, section: 4):
             return 160
+        case IndexPath(row: 0, section: 5): // if the concert is remote, hide the venue map
+            return concert.remote ? 0 : 250
+        case IndexPath(row: 0, section: 6): // if the concert is new, hide the ticket button
+            return concert.documentID == "" ? 0 : 44
         default:
             return 44
         }
